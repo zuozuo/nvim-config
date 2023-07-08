@@ -28,6 +28,8 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.cmd("colorscheme desert")
+vim.cmd("tnoremap <Esc> <C-\\><C-n>")
+vim.cmd("autocmd TermOpen * startinsert")
 
 ---- ========================================================================== --
 -- ==                               PLUGINS                                == --
@@ -426,3 +428,4 @@ vim.api.nvim_create_user_command('Blame', 'Gitsigns toggle_current_line_blame', 
 vim.api.nvim_create_user_command('Lint', 'CocList diagnostics', {})
 vim.api.nvim_create_user_command('Python', 'CocCommand python.setInterpreter', {})
 vim.api.nvim_create_user_command('FindFile', 'NvimTreeFocus', {})
+vim.api.nvim_create_user_command('Ttt', 'belowright split | terminal', {})
