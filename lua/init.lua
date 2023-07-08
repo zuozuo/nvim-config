@@ -104,11 +104,8 @@ require("lazy").setup({
   {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
-    config = function()
-      require('dashboard').setup {
-        -- config
-      }
-    end,
+    -- config = function()
+    -- end,
     dependencies = { {'nvim-tree/nvim-web-devicons'}}
   },
   {
@@ -130,6 +127,7 @@ require("lazy").setup({
   },
   'xiyaowong/nvim-cursorword',
   'nmac427/guess-indent.nvim',
+  'lukas-reineke/lsp-format.nvim',
   {
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = {
@@ -149,6 +147,33 @@ require("lazy").setup({
   { 'rose-pine/neovim', name = 'rose-pine' },
   { 'projekt0n/github-nvim-theme' },
 })
+
+require('dashboard').setup {
+  theme = 'hyper', --  theme is doom and hyper default is hyper
+  disable_move,    --  default is false disable move keymap for hyper
+  shortcut_type,   --  shorcut type 'letter' or 'number'
+  change_to_vcs_root, -- default is false,for open file in hyper mru. it will change to the root of vcs
+  config = {},    --  config used for theme
+  hide = {
+    statusline,    -- hide statusline default is true
+    tabline,       -- hide the tabline
+    winbar,        -- hide winbar
+  },
+  preview = {
+    command,       -- preview command
+    file_path,     -- preview file path
+    file_height,   -- preview file height
+    file_width,    -- preview file width
+  },
+}
+
+
+--require("lsp-format").setup {}
+--local on_attach = function(client)
+    --require("lsp-format").on_attach(client)
+    -- ... custom code ...
+--end
+--require("lspconfig").gopls.setup { on_attach = on_attach }
 
 require'treesitter-context'.setup{
   enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -226,6 +251,7 @@ require('nvim-autopairs').setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
 })
 
+
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -240,7 +266,6 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', 'C', api.tree.change_root_to_node,        opts('Change root to current node'))
   vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
 end
-
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -284,12 +309,12 @@ require("noice").setup({
   },
   cmdline = {
     format = {
-      cmdline = { icon = ">" },
-      search_down = { icon = "/" },
-      search_up = { icon = "/" },
-      filter = { icon = "$" },
-      lua = { icon = "☾" },
-      help = { icon = "?" },
+      cmdline = { icon = "🍏" },
+      search_down = { icon = "🍑" },
+      search_up = { icon = "🍑" },
+      filter = { icon = "🧅" },
+      lua = { icon = "🍋" },
+      help = { icon = "🍅" },
     },
   },
   format = {
@@ -414,6 +439,8 @@ vim.keymap.set('n', '<leader>d', '<cmd>FzfLua buffers<cr>', {desc = 'Search buff
 vim.keymap.set('n', '<leader>f', '<cmd>FzfLua grep<cr>', {desc = 'Grep in project'})
 vim.keymap.set('n', '<leader>w', '<cmd>FzfLua grep_cword<cr>', {desc = 'Grep current word in project'})
 
+vim.keymap.set('n', 'jd', '<cmd>Ddd<cr>', {desc = 'Grep current word in project'})
+
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
@@ -466,7 +493,8 @@ vim.api.nvim_create_user_command('Lint', 'CocList diagnostics', {})
 vim.api.nvim_create_user_command('Python', 'CocCommand python.setInterpreter', {})
 vim.api.nvim_create_user_command('FindFile', 'NvimTreeFocus', {})
 vim.api.nvim_create_user_command('Ttt', 'belowright split | terminal', {})
-
+vim.api.nvim_create_user_command('Ddd', 'belowright split | call CocActionAsync("jumpDefinition")', {})
+vim.api.nvim_create_user_command('Hhh', 'call CocActionAsync("jumpDefinition") | belowright split', {})
 
 
 -- ========================================================================== --
