@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "176e85eeb63f1a5970d6b88f1725039d85ca0055" },
   "aerial.nvim": { "branch": "master", "commit": "79644dbedc189d79573b2a60e247989bbd8f16e7" },
+  "barbar.nvim": { "branch": "master", "commit": "b8ca6076f75e49cca1fa0288c080f3d10ec2152c" },
   "coc.nvim": { "branch": "release", "commit": "bbaa1d5d1ff3cbd9d26bb37cfda1a990494c4043" },
   "dashboard-nvim": { "branch": "master", "commit": "ab84915f7cfd7bc7a5bfe7409c3eccf8d09c162a" },
   "fzf-lua": { "branch": "main", "commit": "d04bbd91d2d96869071d965564aae34cae103ca1" },

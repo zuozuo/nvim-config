@@ -113,7 +113,73 @@ require("lazy").setup({
   },
   {
     '/lewis6991/gitsigns.nvim'
-  }
+  },
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
+})
+
+vim.g.barbar_auto_setup = false -- disable auto-setup
+require('barbar').setup({
+  icons = {
+    -- Configure the base icons on the bufferline.
+    -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
+    buffer_index = false,
+    buffer_number = false,
+    semantic_letters = false,
+    button = '🍀',
+    -- Enables / disables diagnostic symbols
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = {enabled = false, icon = '😱'},
+      [vim.diagnostic.severity.WARN] = {enabled = false},
+      [vim.diagnostic.severity.INFO] = {enabled = false},
+      [vim.diagnostic.severity.HINT] = {enabled = false},
+    },
+    gitsigns = {
+      added = {enabled = false, icon = '+'},
+      changed = {enabled = false, icon = '~'},
+      deleted = {enabled = false, icon = '-'},
+    },
+    filetype = {
+      -- Sets the icon's highlight group.
+      -- If false, will use nvim-web-devicons colors
+      custom_colors = false,
+
+      -- Requires `nvim-web-devicons` if `true`
+      enabled = false,
+    },
+    separator = {left = '▎', right = ''},
+
+    -- If true, add an additional separator at the end of the buffer list
+    separator_at_end = true,
+
+    -- Configure the icons on the bufferline when modified or pinned.
+    -- Supports all the base icon options.
+    modified = {button = '●'},
+    pinned = {button = '🐶', filename = false},
+
+    -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'
+    preset = 'default',
+
+    -- Configure the icons on the bufferline based on the visibility of a buffer.
+    -- Supports all the base icon options, plus `modified` and `pinned`.
+    alternate = {filetype = {enabled = false}},
+    current = {buffer_index = true},
+    inactive = {button = '×'},
+    visible = {modified = {buffer_number = false}},
+    tabpages = false,
+  },
 })
 
 require('nvim-autopairs').setup({
@@ -307,6 +373,23 @@ vim.keymap.set('n', '<leader>e', '<cmd>FzfLua files<cr>', {desc = 'Search files'
 vim.keymap.set('n', '<leader>d', '<cmd>FzfLua buffers<cr>', {desc = 'Search buffered files'})
 vim.keymap.set('n', '<leader>f', '<cmd>FzfLua grep<cr>', {desc = 'Grep in project'})
 vim.keymap.set('n', '<leader>w', '<cmd>FzfLua grep_cword<cr>', {desc = 'Grep current word in project'})
+
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
+map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opts)
+map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opts)
+map('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', opts)
+map('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', opts)
+map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', opts)
+map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
+map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
+map('n', '<C-9>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
+map('n', '<C-q>', '<Cmd>BufferClose<CR>', opts)
 
 -- local function opts(desc)
 --   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
