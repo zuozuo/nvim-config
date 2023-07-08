@@ -29,7 +29,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.cmd("colorscheme desert")
 
-
 ---- ========================================================================== --
 -- ==                               PLUGINS                                == --
 -- ========================================================================== --
@@ -128,7 +127,13 @@ require("lazy").setup({
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
+  {
+    'xiyaowong/nvim-cursorword',
+  }
 })
+
+-- xiyaowong/nvim-cursorword'
+vim.cmd("hi default CursorWord cterm=underline gui=underline")
 
 vim.g.barbar_auto_setup = false -- disable auto-setup
 require('barbar').setup({
@@ -419,4 +424,5 @@ vim.api.nvim_create_user_command('EditConfig', 'edit ~/.config/nvim/lua/init.lua
 vim.api.nvim_create_user_command('EditConfigLua', 'edit ~/.config/nvim/lua/', {})
 vim.api.nvim_create_user_command('Blame', 'Gitsigns toggle_current_line_blame', {})
 vim.api.nvim_create_user_command('Lint', 'CocList diagnostics', {})
+vim.api.nvim_create_user_command('Python', 'CocCommand python.setInterpreter', {})
 vim.api.nvim_create_user_command('FindFile', 'NvimTreeFocus', {})
