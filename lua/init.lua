@@ -27,7 +27,6 @@ vim.opt.showtabline = 1
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd("colorscheme desert")
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 vim.cmd("autocmd TermOpen * startinsert")
 
@@ -129,10 +128,44 @@ require("lazy").setup({
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
+  'xiyaowong/nvim-cursorword',
+  'nmac427/guess-indent.nvim',
   {
-    'xiyaowong/nvim-cursorword',
-  }
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+
+  ------   COLOR THEMES   ------
+  { 'projekt0n/github-nvim-theme' },
+  { 'ellisonleao/gruvbox.nvim', priority = 1000 },
+  { 'luisiacc/gruvbox-baby' },
+  { 'sainnhe/gruvbox-material' },
+  { 'sainnhe/sonokai' },
+  { 'ful1e5/onedark.nvim' },
+  { 'EdenEast/nightfox.nvim' },
+  { 'marko-cerovac/material.nvim' },
+  { 'rose-pine/neovim', name = 'rose-pine' },
+  { 'projekt0n/github-nvim-theme' },
 })
+
+require'treesitter-context'.setup{
+  enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+  max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+  min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+  line_numbers = true,
+  multiline_threshold = 20, -- Maximum number of lines to collapse for a single context line
+  trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+  mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+  -- Separator between context and content. Should be a single character string, like '-'.
+  -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+  separator = nil,
+  zindex = 20, -- The Z-index of the context window
+  on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+}
+
+require('guess-indent').setup({})
 
 -- xiyaowong/nvim-cursorword'
 vim.cmd("hi default CursorWord cterm=underline gui=underline")
@@ -381,6 +414,10 @@ vim.keymap.set('n', '<leader>d', '<cmd>FzfLua buffers<cr>', {desc = 'Search buff
 vim.keymap.set('n', '<leader>f', '<cmd>FzfLua grep<cr>', {desc = 'Grep in project'})
 vim.keymap.set('n', '<leader>w', '<cmd>FzfLua grep_cword<cr>', {desc = 'Grep current word in project'})
 
+vim.keymap.set("n", "[c", function()
+  require("treesitter-context").go_to_context()
+end, { silent = true })
+
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
@@ -429,3 +466,11 @@ vim.api.nvim_create_user_command('Lint', 'CocList diagnostics', {})
 vim.api.nvim_create_user_command('Python', 'CocCommand python.setInterpreter', {})
 vim.api.nvim_create_user_command('FindFile', 'NvimTreeFocus', {})
 vim.api.nvim_create_user_command('Ttt', 'belowright split | terminal', {})
+
+
+
+-- ========================================================================== --
+-- ==                             COLOR THEMES                             == --
+-- ========================================================================== --
+-- vim.cmd("colorscheme desert")
+vim.cmd("colorscheme sonokai")
