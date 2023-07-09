@@ -2,6 +2,18 @@ return {
   "neovim/nvim-lspconfig", 
   config = function()
     local lspconfig = require('lspconfig')
-    lspconfig.pyright.setup{}
+    -- lspconfig.pyright.setup{}
+    lspconfig.pylsp.setup{
+      settings = {
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              ignore = {'W391'},
+              maxLineLength = 100
+            }
+          }
+        }
+      }
+    }
   end
 }

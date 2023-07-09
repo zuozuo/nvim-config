@@ -27,6 +27,8 @@ local plugins = {
   require("plugins.treesitter"),
   require("plugins.telescope"),
   require("plugins.lspconfig"),
+  require("plugins.mason"),
+  require("plugins.formatter"),
 }
 
 local options = {
