@@ -1,4 +1,5 @@
 --
+-- https://superuser.com/questions/387897/can-i-use-the-cmd-key-in-terminal-vim-at-all
 -- https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
 -- https://github.com/VonHeikemen/nvim-starter/tree/01-base
 --
@@ -435,11 +436,14 @@ vim.keymap.set('n', 'Y', 'yy', {desc = 'Copy line'})
 vim.keymap.set('n', 'qq', '<cmd>quit<cr>', {desc = 'Quit buffer'})
 vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', {desc = 'File Explorer'})
 vim.keymap.set('n', '<leader>e', '<cmd>FzfLua files<cr>', {desc = 'Search files'})
+vim.keymap.set('n', '<c-e>', '<cmd>FzfLua files<cr>', {desc = 'Search files'})
 vim.keymap.set('n', '<leader>d', '<cmd>FzfLua buffers<cr>', {desc = 'Search buffered files'})
+vim.keymap.set('n', '<c-d>', '<cmd>FzfLua buffers<cr>', {desc = 'Search buffered files'})
 vim.keymap.set('n', '<leader>f', '<cmd>FzfLua grep<cr>', {desc = 'Grep in project'})
+vim.keymap.set('n', '<c-f>', '<cmd>FzfLua grep<cr>', {desc = 'Grep in project'})
 vim.keymap.set('n', '<leader>w', '<cmd>FzfLua grep_cword<cr>', {desc = 'Grep current word in project'})
 
-vim.keymap.set('n', 'jd', '<cmd>Ddd<cr>', {desc = 'Grep current word in project'})
+vim.keymap.set('n', 'gd', '<cmd>Ddd<cr>', {desc = 'Grep current word in project'})
 
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
@@ -458,6 +462,7 @@ map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
 map('n', '<C-9>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<M-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
 map('n', '<C-q>', '<Cmd>BufferClose<CR>', opts)

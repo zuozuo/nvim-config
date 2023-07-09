@@ -10,7 +10,6 @@ call plug#begin()
 call plug#end()
 
 lua require('init')
-lua require('statusline')
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#_select_confirm() :
