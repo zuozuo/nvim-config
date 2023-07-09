@@ -26,6 +26,7 @@ local plugins = {
   require("plugins.guess_indent"),
   require("plugins.treesitter"),
   require("plugins.telescope"),
+  require("plugins.lspconfig"),
 }
 
 local options = {
