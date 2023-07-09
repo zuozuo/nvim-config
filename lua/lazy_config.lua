@@ -28,7 +28,7 @@ local plugins = {
   require("plugins.telescope"),
   require("plugins.lspconfig"),
   require("plugins.mason"),
-  require("plugins.formatter"),
+  require("plugins.mason_lspconfig"),
 }
 
 local options = {
