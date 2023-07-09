@@ -155,7 +155,12 @@ require('dashboard').setup {
   disable_move,    --  default is false disable move keymap for hyper
   shortcut_type,   --  shorcut type 'letter' or 'number'
   change_to_vcs_root, -- default is false,for open file in hyper mru. it will change to the root of vcs
-  config = {},    --  config used for theme
+  config = {
+    week_header = {
+      enable = true,
+    }, 
+    project = { enable = false }, 
+  },    --  config used for theme
   hide = {
     statusline,    -- hide statusline default is true
     tabline,       -- hide the tabline
@@ -444,7 +449,7 @@ vim.keymap.set('n', '<leader>f', '<cmd>FzfLua grep<cr>', {desc = 'Grep in projec
 vim.keymap.set('n', '<c-f>', '<cmd>FzfLua grep<cr>', {desc = 'Grep in project'})
 vim.keymap.set('n', '<leader>w', '<cmd>FzfLua grep_cword<cr>', {desc = 'Grep current word in project'})
 
-vim.keymap.set('n', 'gd', '<cmd>Ddd<cr>', {desc = 'Grep current word in project'})
+-- vim.keymap.set('n', 'gd', '<cmd>Ddd<cr>', {desc = 'Grep current word in project'})
 
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
@@ -500,7 +505,7 @@ vim.api.nvim_create_user_command('Diagnostics', 'CocDiagnostics', {})
 vim.api.nvim_create_user_command('Python', 'CocCommand python.setInterpreter', {})
 vim.api.nvim_create_user_command('FindFile', 'NvimTreeFocus', {})
 vim.api.nvim_create_user_command('Ttt', 'belowright split | terminal', {})
-vim.api.nvim_create_user_command('Ddd', 'belowright split | call CocActionAsync("jumpDefinition")', {})
+vim.api.nvim_create_user_command('Ddd', 'call CocActionAsync("jumpDefinition")', {})
 vim.api.nvim_create_user_command('Hhh', 'call CocActionAsync("jumpDefinition") | belowright split', {})
 
 
