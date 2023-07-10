@@ -22,3 +22,9 @@ require("commands")
 
 -- vim.cmd("colorscheme desert")
 vim.cmd("colorscheme sonokai")
+vim.diagnostic.disable()
+
+
+local ls = require("luasnip")
+vim.keymap.set({"s"}, "<Tab>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
