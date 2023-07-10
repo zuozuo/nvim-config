@@ -23,6 +23,7 @@ local plugins = {
   require("plugins.notify"),
   require("plugins.gitsigns"),
   require("plugins.barbar"),
+  require("plugins.lualine"),
   require("plugins.guess_indent"),
   require("plugins.treesitter"),
   require("plugins.telescope"),
