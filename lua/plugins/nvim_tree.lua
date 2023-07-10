@@ -18,6 +18,8 @@ return {
 
       -- custom mappings
       vim.keymap.set('n', 'C', api.tree.change_root_to_node,        opts('Change root to current node'))
+      vim.keymap.set('n', 'v', api.node.open.vertical,        opts('Open file in a new vertical split'))
+      vim.keymap.set('n', 's', api.node.open.horizontal,        opts('Open file in a new horizontal split'))
       vim.keymap.set('n', '?', api.tree.toggle_help,                  opts('Help'))
     end
 
