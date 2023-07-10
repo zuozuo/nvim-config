@@ -30,7 +30,7 @@ local plugins = {
   require("plugins.lspconfig"),
   require("plugins.mason"),
   require("plugins.mason_lspconfig"),
-  require("plugins.complete"),
+  -- require("plugins.complete"),
 }
 
 local options = {
