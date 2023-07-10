@@ -41,9 +41,11 @@ map('n', '<C-]>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<C-[>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('i', 'ddd', 'import ipdb; ipdb.set_trace(context=5)', opts)
 
-map('n', '<LEADER>gd', '<cmd>Telescope lsp_definitions<CR>', {noremap=true, silent=true})
-map('n', '<LEADER>gs', '<cmd>sp | Telescope lsp_definitions<CR>', {noremap=true, silent=true})
-map('n', '<LEADER>gv', '<cmd>vsp | Telescope lsp_definitions<CR>', {noremap=true, silent=true})
+map('n', '<LEADER>gd', '<cmd>Telescope lsp_definitions<CR>', opts)
+map('n', '<LEADER>gs', '<cmd>sp | Telescope lsp_definitions<CR>', opts)
+map('n', '<LEADER>gv', '<cmd>vsp | Telescope lsp_definitions<CR>', opts)
+
+map('n', '<C-o>', '<cmd>edit #<CR>', opts)
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
