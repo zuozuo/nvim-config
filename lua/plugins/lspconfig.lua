@@ -2,7 +2,7 @@ return {
   "neovim/nvim-lspconfig", 
   config = function()
     local lspconfig = require('lspconfig')
-    -- lspconfig.pyright.setup{}
+    lspconfig.pyright.setup{}
     -- lspconfig.ruff_lsp.setup{}
     lspconfig.pylsp.setup{
       settings = {

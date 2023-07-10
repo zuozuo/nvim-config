@@ -41,6 +41,10 @@ map('n', '<C-]>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<C-[>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('i', 'ddd', 'import ipdb; ipdb.set_trace(context=5)', opts)
 
+map('n', '<LEADER>gd', '<cmd>Telescope lsp_definitions<CR>', {noremap=true, silent=true})
+map('n', '<LEADER>gs', '<cmd>sp | Telescope lsp_definitions<CR>', {noremap=true, silent=true})
+map('n', '<LEADER>gv', '<cmd>vsp | Telescope lsp_definitions<CR>', {noremap=true, silent=true})
+
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
@@ -78,7 +82,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
