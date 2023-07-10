@@ -7,3 +7,4 @@ my custom neovim config
 - `git clone https://github.com/zuozuo/nvim-config.git ~/.config/nvim`
 - run `nvim` at command line
 - run `:Lazy` in neovim to install plugins
+- install https://github.com/ryanoasis/nerd-fonts, optionally but recommended
