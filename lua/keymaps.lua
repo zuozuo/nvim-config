@@ -46,6 +46,7 @@ map('n', '<LEADER>gs', '<cmd>sp | Telescope lsp_definitions<CR>', opts)
 map('n', '<LEADER>gv', '<cmd>vsp | Telescope lsp_definitions<CR>', opts)
 
 map('n', '<C-o>', '<cmd>edit #<CR>', opts)
+map('n', '<C-p>', '<cmd>bprev<CR>', opts)
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
