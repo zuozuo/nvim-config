@@ -39,6 +39,7 @@ map('n', '<leader>w', '<Cmd>Telescope current_buffer_tags theme=dropdown<CR>', o
 map('n', '<leader>d', '<Cmd>Telescope diagnostics theme=dropdown<CR>', opts)
 map('n', '<C-]>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<C-[>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+map('i', 'ddd', 'import ipdb; ipdb.set_trace(context=5)', opts)
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }

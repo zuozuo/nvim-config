@@ -10,6 +10,7 @@ vim.api.nvim_create_user_command("GitStatus", "lua require('telescope.builtin').
 vim.api.nvim_create_user_command("Diagnose", "Telescope diagnostics theme=dropdown", {})
 vim.api.nvim_create_user_command("DiagnoseShow", "lua vim.diagnostic.show()", {})
 vim.api.nvim_create_user_command("DiagnoseHide", "lua vim.diagnostic.hide()", {})
+vim.api.nvim_create_user_command("SnippetPython", "sp ~/.config/nvim/snippets/custom.json", {})
 
 -- https://www.reddit.com/r/neovim/comments/xhtr1p/nvim_autocmd_filetype_option/
 -- vim.api.nvim_create_autocmd('BufWritePre', {
