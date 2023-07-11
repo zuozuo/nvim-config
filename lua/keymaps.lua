@@ -15,7 +15,7 @@ vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
 
-vim.keymap.set('n', '<leader>gi', '<CMD>!github<CR>')
+vim.keymap.set('n', '<leader>gi', '<CMD>FloatermNew lazygit<CR>')
 
 vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
 vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
