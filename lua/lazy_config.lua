@@ -26,12 +26,14 @@ local plugins = {
   require("plugins.lualine"),
   require("plugins.guess_indent"),
   require("plugins.treesitter"),
+  require("plugins.treesitter_context"),
   require("plugins.telescope"),
   require("plugins.lspconfig"),
   require("plugins.mason"),
   require("plugins.mason_lspconfig"),
   require("plugins.complete"),
   require("plugins.luasnip"),
+  -- require("plugins.sniprun"),
 }
 
 local options = {

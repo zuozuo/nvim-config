@@ -5,7 +5,7 @@ vim.api.nvim_create_user_command("EditConfigLua", "edit ~/.config/nvim/lua/", {}
 vim.api.nvim_create_user_command("Blame", "Gitsigns toggle_current_line_blame", {})
 vim.api.nvim_create_user_command("FindFile", "NvimTreeFocus", {})
 vim.api.nvim_create_user_command("Ttt", "belowright split | terminal", {})
-vim.api.nvim_create_user_command("FormatPython", "!black %:p", {})
+vim.api.nvim_create_user_command("FormatPython", ":w | !black %:p", {})
 vim.api.nvim_create_user_command("GitStatus", "lua require('telescope.builtin').git_status({layout_strategy='vertical',layout_config={width=0.6}})", {})
 vim.api.nvim_create_user_command("Diagnose", "Telescope diagnostics theme=dropdown", {})
 vim.api.nvim_create_user_command("DiagnoseShow", "lua vim.diagnostic.show()", {})
