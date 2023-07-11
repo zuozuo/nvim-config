@@ -34,7 +34,6 @@ local plugins = {
   require("plugins.complete"),
   require("plugins.luasnip"),
   -- require("plugins.which_key"),
-  -- require("plugins.sniprun"),
 }
 
 local options = {

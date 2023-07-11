@@ -14,6 +14,27 @@ vim.api.nvim_create_user_command("SnippetPython", "sp ~/.config/nvim/snippets/cu
 vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {})
 vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 
+
+-- this function only support run python code now
+-- TODO: add support to run more languages
+function runCurrentFile()
+  local file = vim.api.nvim_buf_get_name(0)
+  local python = vim.fn.exepath('python')
+  local cmd = "belowright split | terminal " .. python .. ' ' .. file
+  vim.cmd(cmd)
+end
+vim.api.nvim_create_user_command("RunCurrentFile", runCurrentFile, {})
+
+
+
+
+
+
+
+
+
+
+
 -- https://www.reddit.com/r/neovim/comments/xhtr1p/nvim_autocmd_filetype_option/
 -- vim.api.nvim_create_autocmd('BufWritePre', {
 --   desc = 'format python on write using black',
