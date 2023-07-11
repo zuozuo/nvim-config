@@ -3,14 +3,33 @@ vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-h>', '<c-w>h')
 vim.keymap.set('n', '<c-l>', '<c-w>l')
 
+vim.keymap.set('t', '<c-j>', '<C-\\><C-n><c-w>j')
+vim.keymap.set('t', '<c-k>', '<C-\\><C-n><c-w>k')
+vim.keymap.set('t', '<c-h>', '<C-\\><C-n><c-w>h')
+vim.keymap.set('t', '<c-l>', '<C-\\><C-n><c-w>l')
+
 vim.keymap.set('n', 'Y', 'yy', {desc = 'Copy line'})
 vim.keymap.set('n', 'qq', '<cmd>quit<cr>', {desc = 'Quit buffer'})
-
--- vim.keymap.set('n', 'gd', '<cmd>Ddd<cr>', {desc = 'Grep current word in project'})
 
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
+
+vim.keymap.set('n', '<leader>gi', '<CMD>!github<CR>')
+
+vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
+vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+vim.keymap.set('n', '<leader>fp', '<CMD>FloatermPrev<CR>')
+vim.keymap.set('n', '<leader>fn', '<CMD>FloatermNext<CR>')
+vim.keymap.set('t', '<leader>fp', '<C-\\><C-n><CMD>FloatermPrev<CR>')
+vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>')
+
+vim.keymap.set('n', '<leader>si', '<CMD>FloatermToggle ipython<CR>')
+vim.keymap.set('t', '<leader>si', '<C-\\><C-n><CMD>FloatermToggle ipython<CR>')
+vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.4 ipython<CR>')
+vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.4 ipython<CR>")
+vim.keymap.set('n', '<leader>sr', '<cmd>RunCurrentFile<CR>')
+
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -27,10 +46,10 @@ map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
 
-map('n', '<leader>e', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
+map('n', '<leader>ee', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
 map('n', '<C-e>', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
 map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>', opts)
-map('n', '<leader>f', '<Cmd>Telescope live_grep theme=dropdown<CR>', opts)
+map('n', '<leader>ff', '<Cmd>Telescope live_grep theme=dropdown<CR>', opts)
 map('n', '<C-f>', '<Cmd>Telescope live_grep theme=dropdown<CR>', opts)
 map('n', '<leader>ct', '<Cmd>Telescope current_buffer_tags theme=dropdown ctags_file=.tags<CR>', opts)
 map('n', '<leader>gt', '<Cmd>Telescope tags theme=dropdown ctags_file=.tags<CR>', opts)
@@ -48,8 +67,6 @@ map('n', '<C-p>', '<cmd>bprev<CR>', opts)
 map('n', '<leader>bn', '<cmd>bnext<CR>', opts)
 map('n', '<leader>ter', '<cmd>Ttt<CR>', opts)
 
-map('n', '<leader>tr', '<cmd>RunCurrentFile<CR>', opts)
-map('n', '<leader>ti', '<cmd>RunCurrentFile<CR>', opts)
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -72,10 +89,11 @@ end)
 vim.keymap.set('n', '<leader>t', '<cmd>AerialToggle!<CR>')
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<space>e', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<space>w', vim.diagnostic.setqflist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer

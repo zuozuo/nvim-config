@@ -20,3 +20,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
 vim.cmd("autocmd TermOpen * startinsert")
+
+-- https://dev.to/minodisk/automatically-switch-to-insert-mode-when-focusing-on-terminal-window-in-vim8-9ab
+vim.cmd("autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | silent! normal i | endif")

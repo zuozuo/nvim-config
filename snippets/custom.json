@@ -1,7 +1,0 @@
-{
-    "iPDB set trace": {
-        "prefix": "ddd",
-        "body": "__import__('ipdb').set_trace(5)",
-        "description": "Code snippet for ipdb debug"
-    },
-}
