@@ -48,6 +48,9 @@ map('n', '<C-p>', '<cmd>bprev<CR>', opts)
 map('n', '<leader>bn', '<cmd>bnext<CR>', opts)
 map('n', '<leader>ter', '<cmd>Ttt<CR>', opts)
 
+map('n', '<leader>tr', '<cmd>RunCurrentFile<CR>', opts)
+map('n', '<leader>ti', '<cmd>RunCurrentFile<CR>', opts)
+
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end

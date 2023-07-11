@@ -14,7 +14,6 @@ vim.api.nvim_create_user_command("SnippetPython", "sp ~/.config/nvim/snippets/cu
 vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {})
 vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 
-
 -- this function only support run python code now
 -- TODO: add support to run more languages
 function runCurrentFile()
@@ -25,7 +24,12 @@ function runCurrentFile()
 end
 vim.api.nvim_create_user_command("RunCurrentFile", runCurrentFile, {})
 
-
+function runIpython()
+  local ipython = vim.fn.exepath('ipython')
+  local cmd = "belowright split | terminal " .. ipython
+  vim.cmd(cmd)
+end
+vim.api.nvim_create_user_command("RunIpython", runIpython, {})
 
 
 
