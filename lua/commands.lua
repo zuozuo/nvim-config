@@ -20,7 +20,7 @@ vim.api.nvim_create_user_command("Send", "FloatermSend", {})
 
 -- this function only support run python code now
 -- TODO: add support to run more languages
-function runCurrentFile()
+local function runCurrentFile()
   vim.notify = require("notify")
   local file = vim.api.nvim_buf_get_name(0)
   if(file == "") then
