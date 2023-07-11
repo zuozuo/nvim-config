@@ -8,3 +8,4 @@ my custom neovim config
 - run `nvim` at command line
 - run `:Lazy` in neovim to install plugins
 - install https://github.com/ryanoasis/nerd-fonts, `ComicShannsMono` is recommended
+- install ripgrep: https://github.com/BurntSushi/ripgrep

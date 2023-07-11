@@ -11,6 +11,8 @@ vim.api.nvim_create_user_command("Diagnose", "Telescope diagnostics theme=dropdo
 vim.api.nvim_create_user_command("DiagnoseShow", "lua vim.diagnostic.show()", {})
 vim.api.nvim_create_user_command("DiagnoseHide", "lua vim.diagnostic.hide()", {})
 vim.api.nvim_create_user_command("SnippetPython", "sp ~/.config/nvim/snippets/custom.json", {})
+vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {})
+vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 
 -- https://www.reddit.com/r/neovim/comments/xhtr1p/nvim_autocmd_filetype_option/
 -- vim.api.nvim_create_autocmd('BufWritePre', {
