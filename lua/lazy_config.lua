@@ -33,6 +33,7 @@ local plugins = {
   require("plugins.mason_lspconfig"),
   require("plugins.complete"),
   require("plugins.luasnip"),
+  require("plugins.which_key"),
   -- require("plugins.sniprun"),
 }
 
