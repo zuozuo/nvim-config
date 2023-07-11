@@ -10,6 +10,7 @@ my custom neovim config
 - install [Nerd Font](https://github.com/ryanoasis/nerd-fonts) `ComicShannsMono` is recommended
 - install [ripgrep](https://github.com/BurntSushi/ripgrep) for telescope live_grep
 - install [grip](https://github.com/joeyespo/grip) to preview markdown
+- install [lazygit](https://github.com/jesseduffield/lazygit) for git
 
 ## Known Issues
 
