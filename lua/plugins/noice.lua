@@ -33,7 +33,7 @@ return {
         cmdline = {
           format = {
             cmdline = { icon = "🍏" },
-            search_down = { icon = "/" },
+            search_down = { icon = "search:" },
             search_up = { icon = "?" },
             filter = { icon = "🧅" },
             lua = { icon = "🍋lua: " },

@@ -18,6 +18,17 @@ vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {}
 vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 vim.api.nvim_create_user_command("Send", "FloatermSend", {})
 
+local closeAllFloatingWindows = function()
+  for a=0,20 do
+    local result = vim.api.nvim_exec("FloatermKill", true)
+    if(result ~= "") then
+      print("Successfully closed " .. a .. " floating windows")
+      break
+    end
+  end
+end
+vim.api.nvim_create_user_command("CloseAllFloatingWindows", closeAllFloatingWindows, {})
+
 -- this function only support run python code now
 -- TODO: add support to run more languages
 local function runCurrentFile()

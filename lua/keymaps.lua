@@ -24,11 +24,14 @@ vim.keymap.set('n', '<leader>fn', '<CMD>FloatermNext<CR>')
 vim.keymap.set('t', '<leader>fp', '<C-\\><C-n><CMD>FloatermPrev<CR>')
 vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>')
 
-vim.keymap.set('n', '<leader>si', '<CMD>FloatermToggle ipython<CR>')
-vim.keymap.set('t', '<leader>si', '<C-\\><C-n><CMD>FloatermToggle ipython<CR>')
+vim.keymap.set('n', '<leader>si', '<CMD>FloatermToggle<CR>')
+vim.keymap.set('t', '<leader>si', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.4 ipython<CR>')
 vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.4 ipython<CR>")
 vim.keymap.set('n', '<leader>sr', '<cmd>RunCurrentFile<CR>')
+
+vim.keymap.set('n', '<space><space>', '<cmd>FloatermToggle<CR>')
+vim.keymap.set('t', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 
 local map = vim.api.nvim_set_keymap
