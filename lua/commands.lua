@@ -18,6 +18,19 @@ vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {}
 vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 vim.api.nvim_create_user_command("Send", "FloatermSend", {})
 
+local showCurrentPath = function() 
+  local path = vim.fn.expand('%:p')
+  if (path == "") then
+    print("Current path is empty")
+    return
+  end
+  local cmd = "FloatermNew --silent echo " .. path .. " | pbcopy"
+  print("current file path copied to clipboard: ")
+  print(path)
+  vim.cmd(cmd)
+end
+vim.api.nvim_create_user_command("FullPath", showCurrentPath, {})
+
 local closeAllFloatingWindows = function()
   for a=0,20 do
     local result = vim.api.nvim_exec("FloatermKill", true)
