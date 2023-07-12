@@ -1,6 +1,6 @@
 vim.api.nvim_create_user_command("ReloadConfig", "source $MYVIMRC", {})
 vim.api.nvim_create_user_command("EditConfigVim", "edit ~/.config/nvim/init.vim", {})
-vim.api.nvim_create_user_command("EditConfig", "edit ~/.config/nvim/lua/init.lua", {})
+vim.api.nvim_create_user_command("EditConfig", "edit ~/.config/nvim/init.lua", {})
 vim.api.nvim_create_user_command("EditConfigLua", "edit ~/.config/nvim/lua/", {})
 vim.api.nvim_create_user_command("Blame", "Gitsigns toggle_current_line_blame", {})
 vim.api.nvim_create_user_command("FindFile", "NvimTreeFocus", {})
