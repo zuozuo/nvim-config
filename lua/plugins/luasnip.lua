@@ -4,12 +4,11 @@ return {
   version = "1.2.1", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
   -- install jsregexp (optional!).
   build = "make install_jsregexp",
-  dependencies = { "rafamadriz/friendly-snippets" },
   config = function()
-    local ls = require("luasnip")
-    ls.setup({})
-    require("luasnip.loaders.from_vscode").lazy_load({
-      include = { "python" }
+    require("luasnip.loaders.from_snipmate").lazy_load({
+      path = { "~/.config/nvim/snippets" },
+      include = { "python", "lua", "javascript", "vim", "bash"},
     })
   end
 }
+

@@ -59,8 +59,9 @@ local function runCurrentFile()
     lua = "lua",
   }
   if execs[ft] then
-    -- local executable = vim.fn.exepath(execs[ft])
-    local cmd = "FloatermNew! " .. execs[ft] .. " %"
+    local executable = vim.fn.exepath(execs[ft])
+    local cmd = "FloatermNew " .. executable.. " % && exit 1"
+    print(cmd)
     vim.cmd(cmd)
   else
     vim.notify(ft .. "Not support to execute in the command", "warn")

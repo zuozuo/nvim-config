@@ -14,5 +14,5 @@ my custom neovim config
 
 ## Known Issues
 
-- custom defined code snippets do't work
+- custom defined code snippets do't work [DONE]
 - tab jump on code snippets do not work
