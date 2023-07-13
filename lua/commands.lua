@@ -28,6 +28,7 @@ local showCurrentPath = function()
   print("current file path copied to clipboard: ")
   print(path)
   vim.cmd(cmd)
+  vim.cmd('stopinsert')
 end
 vim.api.nvim_create_user_command("FullPath", showCurrentPath, {})
 
