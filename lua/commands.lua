@@ -17,6 +17,11 @@ vim.api.nvim_create_user_command("SnippetPython", "sp ~/.config/nvim/snippets/py
 vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {})
 vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 vim.api.nvim_create_user_command("Send", "FloatermSend", {})
+vim.api.nvim_create_user_command("References", "lua vim.lsp.buf.references()", {})
+vim.api.nvim_create_user_command("Format", "lua vim.lsp.buf.format()", {})
+vim.api.nvim_create_user_command("Implementation", "lua vim.lsp.buf.implementation()", {})
+vim.api.nvim_create_user_command("DjangoConsole", "FloatermNew python manage.py shell -i ipython", {})
+vim.api.nvim_create_user_command("DjangoServer", "FloatermNew python manage.py runserver", {})
 
 local showCurrentPath = function() 
   local path = vim.fn.expand('%:p')

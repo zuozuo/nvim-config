@@ -1,3 +1,5 @@
+vim.keymap.set('n', 'U', '<c-r>')
+
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
 vim.keymap.set('n', '<c-h>', '<c-w>h')
@@ -10,6 +12,7 @@ vim.keymap.set('t', '<c-l>', '<C-\\><C-n><c-w>l')
 
 vim.keymap.set('n', 'Y', 'yy', {desc = 'Copy line'})
 vim.keymap.set('n', 'qq', '<cmd>quit<cr>', {desc = 'Quit buffer'})
+vim.cmd("nmap bb :BufferGoto ")
 
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
@@ -36,18 +39,18 @@ vim.keymap.set('t', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opts)
-map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opts)
-map('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', opts)
-map('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', opts)
-map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', opts)
-map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
-map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
-map('n', '<C-9>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<space>1', '<Cmd>BufferGoto 1<CR>', opts)
+map('n', '<space>2', '<Cmd>BufferGoto 2<CR>', opts)
+map('n', '<space>3', '<Cmd>BufferGoto 3<CR>', opts)
+map('n', '<space>4', '<Cmd>BufferGoto 4<CR>', opts)
+map('n', '<space>5', '<Cmd>BufferGoto 5<CR>', opts)
+map('n', '<space>6', '<Cmd>BufferGoto 6<CR>', opts)
+map('n', '<space>7', '<Cmd>BufferGoto 7<CR>', opts)
+map('n', '<space>8', '<Cmd>BufferGoto 8<CR>', opts)
+map('n', '<leader>9', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<leader>0', '<Cmd>BufferNext<CR>', opts)
 
 map('n', '<leader>ee', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
 map('n', '<C-e>', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
