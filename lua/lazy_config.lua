@@ -28,12 +28,19 @@ local plugins = {
   require("plugins.treesitter"),
   require("plugins.treesitter_context"),
   require("plugins.telescope"),
+  -- this must called before lspconfig
+  require("plugins.lua_neodev"),
   require("plugins.lspconfig"),
   require("plugins.mason"),
   require("plugins.mason_lspconfig"),
   require("plugins.complete"),
   require("plugins.luasnip"),
   require("plugins.floatterm"),
+  require("plugins.plenary"),
+  require("plugins.wilder"),
+  require("plugins.leap"),
+  require("plugins.flit"),
+  require("plugins.autosave"),
   -- require("plugins.which_key"),
 }
 

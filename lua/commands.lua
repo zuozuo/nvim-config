@@ -22,6 +22,7 @@ vim.api.nvim_create_user_command("Format", "lua vim.lsp.buf.format()", {})
 vim.api.nvim_create_user_command("Implementation", "lua vim.lsp.buf.implementation()", {})
 vim.api.nvim_create_user_command("DjangoServer", "FloatermNew python manage.py runserver", {})
 vim.api.nvim_create_user_command("DjangoConsole", "FloatermNew --name=ipython --wintype=vsplit --width=0.4 python manage.py shell -i ipython", {})
+vim.api.nvim_create_user_command("RemoveSwp", "!rm -rf ~/.local/state/nvim/swap/*", {})
 
 local showCurrentPath = function() 
   local path = vim.fn.expand('%:p')
