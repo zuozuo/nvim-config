@@ -17,6 +17,7 @@ vim.api.nvim_create_user_command("SnippetPython", "sp ~/.config/nvim/snippets/py
 vim.api.nvim_create_user_command("Ctags", "!ctags -R --fields='+n' -f .tags", {})
 vim.api.nvim_create_user_command("ClearBuffers", "bufdo bd", {})
 vim.api.nvim_create_user_command("Send", "FloatermSend", {})
+vim.api.nvim_create_user_command("DjangoConsole", "FloatermNew --name=ipython --wintype=vsplit --width=0.4 python manage.py shell -i ipython", {})
 
 local showCurrentPath = function() 
   local path = vim.fn.expand('%:p')
