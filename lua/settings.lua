@@ -13,6 +13,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.showtabline = 1
+vim.opt.colorcolumn = "100"
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

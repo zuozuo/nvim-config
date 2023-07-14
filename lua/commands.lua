@@ -20,8 +20,8 @@ vim.api.nvim_create_user_command("Send", "FloatermSend", {})
 vim.api.nvim_create_user_command("References", "lua vim.lsp.buf.references()", {})
 vim.api.nvim_create_user_command("Format", "lua vim.lsp.buf.format()", {})
 vim.api.nvim_create_user_command("Implementation", "lua vim.lsp.buf.implementation()", {})
-vim.api.nvim_create_user_command("DjangoConsole", "FloatermNew python manage.py shell -i ipython", {})
 vim.api.nvim_create_user_command("DjangoServer", "FloatermNew python manage.py runserver", {})
+vim.api.nvim_create_user_command("DjangoConsole", "FloatermNew --name=ipython --wintype=vsplit --width=0.4 python manage.py shell -i ipython", {})
 
 local showCurrentPath = function() 
   local path = vim.fn.expand('%:p')
@@ -33,6 +33,7 @@ local showCurrentPath = function()
   print("current file path copied to clipboard: ")
   print(path)
   vim.cmd(cmd)
+  vim.cmd('stopinsert')
 end
 vim.api.nvim_create_user_command("FullPath", showCurrentPath, {})
 

@@ -1,4 +1,6 @@
-vim.keymap.set('n', 'U', '<c-r>')
+vim.keymap.set('n', 'U', '<C-r>')
+vim.keymap.set('n', '9', '^')
+vim.keymap.set('n', '0', '$')
 
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
