@@ -20,7 +20,7 @@ vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context()
 end, { silent = true })
 
-vim.keymap.set('n', '<leader>gi', '<CMD>FloatermNew lazygit<CR>')
+vim.keymap.set('n', '<leader>gi', '<CMD>FloatermNew --width=0.9 --height=0.8 lazygit<CR>')
 
 vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
 vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
@@ -31,12 +31,14 @@ vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>')
 
 vim.keymap.set('n', '<leader>si', '<CMD>FloatermToggle<CR>')
 vim.keymap.set('t', '<leader>si', '<C-\\><C-n><CMD>FloatermToggle<CR>')
-vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.4 ipython<CR>')
-vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.4 ipython<CR>")
+vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>')
+vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>")
 vim.keymap.set('n', '<leader>sr', '<cmd>RunCurrentFile<CR>')
 
 vim.keymap.set('n', '<space><space>', '<cmd>FloatermToggle<CR>')
-vim.keymap.set('t', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 
 local map = vim.api.nvim_set_keymap

@@ -211,11 +211,9 @@ snippet pdb
 snippet bpdb
 	__import__('bpdb').set_trace()
 # ipython debugger (ipdb)
-snippet ipdb
-	__import__('ipdb').set_trace()
 # embed ipython itself
-snippet iem
-	__import__('IPython').embed()
+snippet ipdb
+	__import__('ipdb').set_trace(context=5)
 snippet ddd
 	__import__('IPython').embed()
 # remote python debugger (rpdb)
@@ -238,7 +236,8 @@ snippet pudbr
 snippet nosetrace
 	__import__('nose').tools.set_trace()
 snippet pprint
-	__import__('pprint').pprint(${1})
+	from rich.pretty import pprint
+	pprint(${1})
 
 snippet "
 	"""${0:doc}
