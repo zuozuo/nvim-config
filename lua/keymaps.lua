@@ -1,6 +1,8 @@
 vim.keymap.set('n', 'U', '<C-r>')
 vim.keymap.set('n', '9', '^')
 vim.keymap.set('n', '0', '$')
+vim.keymap.set('v', '9', '^')
+vim.keymap.set('v', '0', '$')
 
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
@@ -33,12 +35,13 @@ vim.keymap.set('n', '<leader>si', '<CMD>FloatermToggle<CR>')
 vim.keymap.set('t', '<leader>si', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>')
 vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>")
-vim.keymap.set('n', '<leader>sr', '<cmd>RunCurrentFile<CR>')
 
 vim.keymap.set('n', '<space><space>', '<cmd>FloatermToggle<CR>')
 vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+
+vim.keymap.set('n', '<c-n>', '<cmd>OpenCurrentCursor<CR>')
 
 
 local map = vim.api.nvim_set_keymap

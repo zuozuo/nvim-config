@@ -16,3 +16,12 @@ my custom neovim config
 
 - custom defined code snippets do't work [DONE]
 - tab jump on code snippets do not work
+
+## Useful docs:
+
+* https://www.physics.udel.edu/~watson/scen103/ascii.html
+* https://codeberg.org/emi/nvim-config
+* https://www.windmill.co.uk/ascii-control-codes.html
+* https://superuser.com/questions/387897/can-i-use-the-cmd-key-in-terminal-vim-at-all
+* https://vonheikemen.github.io/devlog/tools/build-your-first-lua-config-for-neovim/
+* https://github.com/VonHeikemen/nvim-starter/tree/01-base
