@@ -1,3 +1,5 @@
+table.unpack = table.unpack or unpack -- 5.1 compatibility
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,37 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local requireAll = require("require_all")
+
 local plugins = {
-  require("plugins.colorthemes"),
-  require("plugins.dashboard"),
-  require("plugins.comment"),
-  require("plugins.tabnine"),
-  require("plugins.aerial"),
-  require("plugins.nvim_tree"),
-  require("plugins.autopairs"),
-  require("plugins.noice"),
-  require("plugins.notify"),
-  require("plugins.gitsigns"),
-  require("plugins.barbar"),
-  require("plugins.lualine"),
-  require("plugins.guess_indent"),
-  require("plugins.treesitter"),
-  require("plugins.treesitter_context"),
-  require("plugins.telescope"),
   -- this must called before lspconfig
   require("plugins.lua_neodev"),
-  require("plugins.lspconfig"),
-  require("plugins.mason"),
-  require("plugins.mason_lspconfig"),
-  require("plugins.complete"),
-  require("plugins.luasnip"),
-  require("plugins.floatterm"),
-  require("plugins.plenary"),
-  require("plugins.wilder"),
-  require("plugins.leap"),
-  require("plugins.flit"),
-  require("plugins.autosave"),
-  -- require("plugins.which_key"),
+  table.unpack(requireAll("plugins"))
 }
 
 local options = {
