@@ -7,7 +7,7 @@ return {
   config = function()
     require("luasnip.loaders.from_snipmate").lazy_load({
       path = { "~/.config/nvim/snippets" },
-      include = { "python", "lua", "javascript", "vim", "bash"},
+      include = { "python", "lua", "javascript", "vim", "bash", "markdown"},
     })
   end
 }

@@ -41,7 +41,7 @@ vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
-vim.keymap.set('n', '<c-n>', '<cmd>OpenCurrentCursor<CR>')
+vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
 
 
 local map = vim.api.nvim_set_keymap
@@ -80,7 +80,6 @@ map('n', '<leader>ep', '<cmd>edit #<CR>', opts)
 map('n', '<C-p>', '<cmd>bprev<CR>', opts)
 map('n', '<leader>bn', '<cmd>bnext<CR>', opts)
 map('n', '<leader>ter', '<cmd>Ttt<CR>', opts)
-
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }

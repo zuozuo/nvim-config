@@ -24,6 +24,12 @@ vim.api.nvim_create_user_command("References", "lua vim.lsp.buf.references()", {
 vim.api.nvim_create_user_command("Format", "lua vim.lsp.buf.format()", {})
 vim.api.nvim_create_user_command("Implementation", "lua vim.lsp.buf.implementation()", {})
 vim.api.nvim_create_user_command("DjangoServer", "FloatermNew python manage.py runserver", {})
+vim.api.nvim_create_user_command("Ipython", "FloatermNew --name=ipython ipython", {})
+vim.api.nvim_create_user_command("IPython", "FloatermNew --name=ipython ipython", {})
+vim.api.nvim_create_user_command("DJangoConsole",
+  "FloatermNew --name=ipython --wintype=vsplit --width=0.5 python manage.py shell_plus --ipython", {})
 vim.api.nvim_create_user_command("DjangoConsole",
   "FloatermNew --name=ipython --wintype=vsplit --width=0.5 python manage.py shell_plus --ipython", {})
 vim.api.nvim_create_user_command("RemoveSwp", "!rm -rf ~/.local/state/nvim/swap/*", {})
+vim.api.nvim_create_user_command("PromptsFind", "Telescope find_files theme=dropdown cwd=~/.config/nvim/prompts", {})
+vim.api.nvim_create_user_command("PromptsGrep", "Telescope live_grep theme=dropdown cwd=~/.config/nvim/prompts", {})
