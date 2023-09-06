@@ -59,6 +59,7 @@ map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<leader>0', '<Cmd>BufferNext<CR>', opts)
 
+map('n', '<leader>rr', '<Cmd>Telescope resume<CR>', opts)
 map('n', '<leader>ee', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
 map('n', '<C-e>', '<Cmd>Telescope find_files theme=dropdown<CR>', opts)
 map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>', opts)
