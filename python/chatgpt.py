@@ -40,7 +40,7 @@ def main():
         openai_api_type="azure",
     )
     now = datetime.now()  # current date and time
-    date = now.strftime("%Y_%m_%d")
+    date = now.strftime("%Y_%m_%d_%H")
 
     path = os.path.join(home, f".config/nvim/prompts/conversation_{date}.md")
     if len(sys.argv) > 1:

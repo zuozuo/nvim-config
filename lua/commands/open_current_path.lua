@@ -1,9 +1,9 @@
-function extractPath(longString)
-  local path = longString:match("path:%s*(.-)%s*$")
-  if not path then
-    path = longString:match("(%S+%.%S+)$")
-  end
-  return path
+function extractPath(str)
+    local path = str:match("path:%s*(.-)%s*$")
+    if not path then
+        path = str:match("(%S+%.%S+)$")
+    end
+    return path
 end
 
 local gotoCurrentPath = function()
