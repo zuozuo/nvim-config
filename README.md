@@ -12,6 +12,9 @@ my custom neovim config
 - install [grip](https://github.com/joeyespo/grip) to preview markdown
 - install [lazygit](https://github.com/jesseduffield/lazygit) for git
 
+## useful knowledge
+- Lazy's default plugin installation directory is ~/.local/share/nvim
+
 ## Known Issues
 
 - custom defined code snippets do't work [DONE]
