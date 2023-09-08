@@ -11,4 +11,6 @@ requireAll("commands")
 
 -- vim.cmd("colorscheme desert")
 vim.cmd("colorscheme sonokai")
+vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme catppuccin-macchiato")
 vim.diagnostic.disable()

@@ -39,7 +39,7 @@ vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintyp
 vim.keymap.set('n', '<space><space>', '<cmd>FloatermToggle<CR>')
 vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
-vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+-- vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
 

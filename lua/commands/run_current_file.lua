@@ -11,11 +11,15 @@ local function runCurrentFile()
   local ft = vim.bo.filetype
 
   if (ft == "markdown") then
-    local cmd =
-        "FloatermNew! --height=0.95 --width=0.99 --autoclose=2 --cwd=~/workspace/workstream/chatbot " ..
-        "conda activate chatbot && python ~/.config/nvim/python/chatgpt.py"
-    -- print(cmd)
-    vim.cmd(cmd)
+    if (string.find(file, ".config/nvim/prompts/conversation_")) then
+      local cmd =
+      "FloatermNew! --height=0.95 --width=0.99 --autoclose=2 --cwd=~/workspace/workstream/chatbot " ..
+      "conda activate chatbot && python ~/.config/nvim/python/chatgpt.py"
+      vim.cmd(cmd)
+    else
+      local cmd = "FloatermNew! --wintype=float --height=0.95 --width=0.7 glow " .. file
+      vim.cmd(cmd)
+    end
     return
   end
 
@@ -30,7 +34,6 @@ local function runCurrentFile()
 
   local execs = {
     python = "python",
-    markdown = "grip",
     lua = "lua",
   }
   if execs[ft] then
