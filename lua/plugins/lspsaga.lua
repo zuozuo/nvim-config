@@ -4,7 +4,12 @@ return {
     require('lspsaga').setup({
       ui = {
         code_action = ''
-      }
+      },
+      outline = {
+        layout = 'float',
+        max_height = 0.8,
+        left_width = 0.4,
+      },
     })
   end,
   dependencies = {
