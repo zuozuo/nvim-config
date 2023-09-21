@@ -23,6 +23,9 @@ snippet docs
 	Description: ${0}
 	"""
 
+snippet settings
+	from django.conf import settings
+
 # Unittest skip
 snippet sk "skip unittests" b
 	@unittest.skip(${1:skip_reason})
@@ -230,8 +233,7 @@ snippet pudbr
 snippet nosetrace
 	__import__('nose').tools.set_trace()
 snippet pprint
-	from rich.pretty import pprint
-	pprint(${1})
+	from rich.pretty import pprint as p
 
 snippet "
 	"""${0:doc}

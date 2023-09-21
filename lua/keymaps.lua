@@ -14,8 +14,8 @@ vim.keymap.set('t', '<c-k>', '<C-\\><C-n><c-w>k')
 vim.keymap.set('t', '<c-h>', '<C-\\><C-n><c-w>h')
 vim.keymap.set('t', '<c-l>', '<C-\\><C-n><c-w>l')
 
-vim.keymap.set('n', 'Y', 'yy', {desc = 'Copy line'})
-vim.keymap.set('n', 'qq', '<cmd>quit<cr>', {desc = 'Quit buffer'})
+vim.keymap.set('n', 'Y', 'yy', { desc = 'Copy line' })
+vim.keymap.set('n', 'qq', '<cmd>quit<cr>', { desc = 'Quit buffer' })
 vim.cmd("nmap bb :BufferGoto ")
 
 vim.keymap.set("n", "[c", function()
@@ -86,14 +86,14 @@ local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 local api = require "nvim-tree.api"
-vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', {desc = 'File Explorer'})
+vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', { desc = 'File Explorer' })
 
 local api = require('Comment.api')
 vim.keymap.set('n', 'cc', api.toggle.linewise.current)
 
 local esc = vim.api.nvim_replace_termcodes(
-'<ESC>', true, false, true
+  '<ESC>', true, false, true
 )
 vim.keymap.set('x', 'cc', function()
   vim.api.nvim_feedkeys(esc, 'nx', false)
@@ -121,7 +121,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
@@ -135,5 +136,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local ls = require("luasnip")
-vim.keymap.set({"s"}, "<Tab>", function() ls.jump( 1) end, {silent = true})
-vim.keymap.set({"s"}, "<S-Tab>", function() ls.jump(-1) end, {silent = true})
+vim.keymap.set({ "s" }, "<Tab>", function() ls.jump(1) end, { silent = true })
+vim.keymap.set({ "s" }, "<S-Tab>", function() ls.jump(-1) end, { silent = true })
+

@@ -11,4 +11,6 @@ local showCurrentPath = function()
   vim.cmd('stopinsert')
 end
 vim.api.nvim_create_user_command("FullPath", showCurrentPath, {})
+vim.api.nvim_create_user_command("FUllPath", showCurrentPath, {})
+vim.api.nvim_create_user_command("FUllPath", showCurrentPath, {})
 
