@@ -294,20 +294,20 @@ snippet pargs
 
 # logging
 # glog = get log
-snippet glog
+snippet logger
 	import logging
-	LOGGER = logging.getLogger(${0:__name__})
+	logger = logging.getLogger(${0:__name__})
 snippet le
-	LOGGER.error(${0:msg})
+	logger.error(${0:msg})
 # conflict with lambda=ld, therefor we change into Logger.debuG
 snippet lg
-	LOGGER.debug(${0:msg})
+	logger.debug(${0:msg})
 snippet lw
-	LOGGER.warning(${0:msg})
+	logger.warning(${0:msg})
 snippet lc
-	LOGGER.critical(${0:msg})
+	logger.critical(${0:msg})
 snippet li
-	LOGGER.info(${0:msg})
+	logger.info(${0:msg})
 snippet epydoc
 	"""${1:Description}
 
@@ -518,3 +518,7 @@ snippet fprs
 	print("$0", file=${1:sys.stderr})
 snippet fprf
 	print(f"$0", file=${1:sys.stderr})
+snippet time
+	start = time.time()
+	print(time.time() - start)
+

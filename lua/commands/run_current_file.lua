@@ -10,6 +10,10 @@ local function runCurrentFile()
 
   local ft = vim.bo.filetype
 
+  if (ft == "http") then
+    require('rest-nvim').run()
+  end
+
   if (ft == "markdown") then
     if (string.find(file, ".config/nvim/prompts/conversation_")) then
       local cmd =
