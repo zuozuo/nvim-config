@@ -8,7 +8,7 @@ return {
             },
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
             ensure_installed = { "python", "lua", "vim", "vimdoc", "query", "html", "markdown", "markdown_inline",
-                "http", "json" },
+                "http", "json", "go" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
