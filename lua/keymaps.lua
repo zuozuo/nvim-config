@@ -100,10 +100,12 @@ vim.keymap.set('x', 'cc', function()
   api.toggle.linewise(vim.fn.visualmode())
 end)
 
-vim.keymap.set('n', '<leader>t', '<cmd>AerialToggle!<CR>')
+-- vim.keymap.set('n', '<leader>t', '<cmd>AerialToggle!<CR>')
+vim.keymap.set('n', '<leader>t', '<cmd>Lspsaga outline<CR>')
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<ESC>', '<cmd>Lspsaga diagnostic_jump_next<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>e', vim.diagnostic.setloclist)

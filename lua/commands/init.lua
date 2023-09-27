@@ -33,3 +33,8 @@ vim.api.nvim_create_user_command("DjangoConsole",
 vim.api.nvim_create_user_command("RemoveSwp", "!rm -rf ~/.local/state/nvim/swap/*", {})
 vim.api.nvim_create_user_command("PromptsFind", "Telescope find_files theme=dropdown cwd=~/.config/nvim/prompts", {})
 vim.api.nvim_create_user_command("PromptsGrep", "Telescope live_grep theme=dropdown cwd=~/.config/nvim/prompts", {})
+vim.api.nvim_create_user_command("Rename", "Lspsaga rename", {})
+vim.api.nvim_create_user_command("REname", "Lspsaga rename", {})
+vim.api.nvim_create_user_command("RRR", "Lspsaga rename", {})
+vim.api.nvim_create_user_command("Finder", "Lspsaga finder", {})
+vim.api.nvim_create_user_command("FFF", "Lspsaga finder", {})
