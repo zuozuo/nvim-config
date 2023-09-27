@@ -6,6 +6,7 @@ return {
     lspconfig.tsserver.setup{
       filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
     }
+    lspconfig.gopls.setup{}
     -- lspconfig.ruff_lsp.setup{}
     lspconfig.lua_ls.setup{
       settings = {
