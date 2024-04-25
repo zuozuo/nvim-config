@@ -106,7 +106,7 @@ snippet adefm
 		${0}
 
 # New Property
-snippet property
+snippet @property
 	@property
 	def ${1}():
 
@@ -524,3 +524,13 @@ snippet time
 snippet loadenv
 	from dotenv import load_dotenv
 	load_dotenv()
+snippet notfound
+	from werkzeug.exceptions import NotFound
+snippet httpexception
+	from werkzeug.exceptions import HTTPException
+snippet badrequest
+	from werkzeug.exceptions import BadRequest
+snippet servererror
+	from werkzeug.exceptions import InternalServerError
+snippet flaskrequest
+	from flask import request

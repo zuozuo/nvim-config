@@ -1,13 +1,12 @@
 return {
     'nvim-treesitter/nvim-treesitter',
-    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
     config = function()
         require 'nvim-treesitter.configs'.setup {
             autotag = {
                 enable = true,
             },
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
-            ensure_installed = { "python", "lua", "vim", "vimdoc", "query", "html", "markdown", "markdown_inline",
+            ensure_installed = { "python", "lua", "vim", "vimdoc", "query", "html", "markdown",
                 "http", "json", "go" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)

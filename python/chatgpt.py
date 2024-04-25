@@ -31,16 +31,15 @@ def print_md(content):
 
 def main():
     DEPLOYMENT_NAME = "chat"
-    model = AzureChatOpenAI(
-        openai_api_base=AZURE_BASE_URL,
-        openai_api_version="2023-05-15",
-        deployment_name=DEPLOYMENT_NAME,
-        openai_api_key=AZURE_API_KEY,
-        openai_api_type="azure",
+    model = ChatOpenAI(
+        model="gpt-4",
         temperature=0,
         streaming=True,
         callbacks=[StreamingStdOutCallbackHandler()],
     )
+    print('--------------------------------------------------------')
+    print('-----------------model---------------------')
+    print('--------------------------------------------------------')
     now = datetime.now()  # current date and time
     date = now.strftime("%Y_%m_%d_%H")
 
