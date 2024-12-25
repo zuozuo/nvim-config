@@ -3,7 +3,7 @@ return {
   config = function()
     local lspconfig = require('lspconfig')
     lspconfig.pyright.setup{}
-    lspconfig.tsserver.setup{
+    lspconfig.ts_ls.setup{
       filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
     }
     lspconfig.gopls.setup{}

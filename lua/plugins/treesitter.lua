@@ -2,9 +2,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     config = function()
         require 'nvim-treesitter.configs'.setup {
-            autotag = {
-                enable = true,
-            },
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
             ensure_installed = { "python", "lua", "vim", "vimdoc", "query", "html", "markdown",
                 "http", "json", "go" },
