@@ -45,6 +45,7 @@ vim.api.nvim_create_user_command("FFF", "Lspsaga finder", {})                   
 vim.api.nvim_create_user_command("Ipython", "FloatermNew --name=ipython ipython", {})                     -- Open IPython terminal
 vim.api.nvim_create_user_command("IPython", "FloatermNew --name=ipython ipython", {})                     -- Alternative IPython
 vim.api.nvim_create_user_command("A", "FloatermNew --wintype=vsplit --width=0.3 aider --watch", {})       -- Open Aider AI assistant
+vim.api.nvim_create_user_command("Ai", "FloatermNew --wintype=vsplit --width=0.3 aider --watch", {})       -- Open Aider AI assistant
 vim.api.nvim_create_user_command("Y", "FloatermNew --width=0.99 --height=0.99 yazi", {})                  -- Open Yazi file manager
 vim.api.nvim_create_user_command("Send", "FloatermSend", {})                                              -- Send to terminal
 
