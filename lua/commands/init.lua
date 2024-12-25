@@ -5,7 +5,6 @@ vim.api.nvim_create_user_command("EditConfigLua", "edit ~/.config/nvim/lua/", {}
 vim.api.nvim_create_user_command("Blame", "Gitsigns toggle_current_line_blame", {})
 vim.api.nvim_create_user_command("BLame", "Gitsigns toggle_current_line_blame", {})
 vim.api.nvim_create_user_command("FindFile", "NvimTreeFocus", {})
-vim.api.nvim_create_user_command("Ttt", "FloatermToggle zsh", {})
 vim.api.nvim_create_user_command("FormatPython", ":w | !black %:p", {})
 vim.api.nvim_create_user_command("FOrmatPython", ":w | !black %:p", {})
 vim.api.nvim_create_user_command("GitStatus",
@@ -26,6 +25,7 @@ vim.api.nvim_create_user_command("Implementation", "lua vim.lsp.buf.implementati
 vim.api.nvim_create_user_command("DjangoServer", "FloatermNew python manage.py runserver", {})
 vim.api.nvim_create_user_command("Ipython", "FloatermNew --name=ipython ipython", {})
 vim.api.nvim_create_user_command("IPython", "FloatermNew --name=ipython ipython", {})
+vim.api.nvim_create_user_command("Y", "FloatermNew --width=0.99 --height=0.99 yazi", {})
 vim.api.nvim_create_user_command("DJangoConsole",
   "FloatermNew --name=ipython --wintype=vsplit --width=0.5 python manage.py shell_plus --ipython", {})
 vim.api.nvim_create_user_command("DjangoConsole",

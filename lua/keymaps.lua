@@ -57,17 +57,15 @@ vim.keymap.set('n', '<leader>fp', '<CMD>FloatermPrev<CR>', { desc = 'cmd-left' }
 vim.keymap.set('n', '<leader>fn', '<CMD>FloatermNext<CR>', { desc = 'cmd-right' })
 vim.keymap.set('t', '<leader>fp', '<C-\\><C-n><CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
 vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>', { desc = 'cmd-right' })
-
-vim.keymap.set('n', '<leader>si', '<CMD>FloatermToggle<CR>', { desc = 'cmd-b' })
-vim.keymap.set('t', '<leader>si', '<C-\\><C-n><CMD>FloatermToggle<CR>', { desc = 'cmd-b' })
-map('n', '<leader>ter', '<cmd>Ttt<CR>', { noremap = true, silent = true, desc = 'cmd-s-t' })
+vim.keymap.set('t', '<leader>hs', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('n', '<leader>hs', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
 
 vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>',
   { desc = 'cmd-s-b' })
 vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>",
   { desc = 'cmd-s-b' })
 
-vim.keymap.set('n', '<space><space>', '<cmd>FloatermNew --wintype=vsplit --width=0.5 <CR>')
+vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
 vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 -- vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
@@ -77,6 +75,7 @@ vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+
 map('n', '<C-9>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
