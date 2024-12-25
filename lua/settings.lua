@@ -16,6 +16,7 @@ vim.opt.showtabline = 1
 vim.opt.colorcolumn = "100"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.laststatus = 3
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1

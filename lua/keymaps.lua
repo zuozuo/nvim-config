@@ -132,7 +132,8 @@ local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 local api = require "nvim-tree.api"
-vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', { desc = 'File Explorer' })
+-- vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', { desc = 'File Explorer' })
+vim.keymap.set('n', '<leader>n', '<cmd>Y<cr>', { desc = 'File Explorer' })
 
 local api = require('Comment.api')
 vim.keymap.set('n', 'cc', api.toggle.linewise.current)
