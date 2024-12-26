@@ -17,14 +17,14 @@ return {
       model = "deepseek-chat",
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0,
-      max_tokens = 10000,
+      max_tokens = 8192,
     },
     gemini = {
       endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
       model = "gemini-2.0-flash-exp",
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0,
-      max_tokens = 10000,
+      max_tokens = 8192,
     },
     behaviour = {
       auto_suggestions = false, -- Experimental stage
