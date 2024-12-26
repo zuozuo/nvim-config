@@ -90,9 +90,13 @@ map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>', { noremap = true,
 map('n', '<leader>ff', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'cmd-f' })
 map('n', '<C-f>', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Live grep' })
 
--- AI add comments here AI!
+-- Search current word in project files
 map('n', '<leader>w', '<Cmd>Telescope grep_string theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Grep current word' })
+
+-- Search tags in current buffer (requires .tags file)
 map('n', '<leader>sy', '<Cmd>Telescope current_buffer_tags theme=dropdown ctags_file=.tags<CR>', { noremap = true, silent = true, desc = 'cmd-s-y' })
+
+-- Search tags in project (requires .tags file)
 map('n', '<leader>so', '<Cmd>Telescope tags theme=dropdown ctags_file=.tags<CR>', { noremap = true, silent = true, desc = 'cmd-s-o' })
 map('n', '<leader>d', '<Cmd>Telescope diagnostics theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Show diagnostics' })
 map('n', '<leader>sr', '<cmd>Telescope lsp_references<CR>', { noremap = true, silent = true, desc = 'cmd-s-r' })
