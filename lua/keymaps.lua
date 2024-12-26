@@ -23,6 +23,7 @@
 -- ,d show telescope diagnostic
 -- cmd-0 toggle avant
 
+
 vim.keymap.set('n', 'U', '<C-r>')
 vim.keymap.set('n', '9', '^')
 vim.keymap.set('n', '0', '$')
@@ -57,19 +58,20 @@ vim.keymap.set('n', '<leader>fp', '<CMD>FloatermPrev<CR>', { desc = 'cmd-left' }
 vim.keymap.set('n', '<leader>fn', '<CMD>FloatermNext<CR>', { desc = 'cmd-right' })
 vim.keymap.set('t', '<leader>fp', '<C-\\><C-n><CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
 vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>', { desc = 'cmd-right' })
--- vim.keymap.set('t', '<leader>bb', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
--- vim.keymap.set('n', '<leader>bb', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
 vim.keymap.set('n', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('v', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('n', '<leader>sb', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>', { desc = 'cmd-s-b' })
 vim.keymap.set('v', '<leader>sb', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>", { desc = 'cmd-s-b' })
 
--- vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
+vim.keymap.set('t', '<leader>gg', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('n', '<leader>gg', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
 -- vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 -- vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 -- vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
+vim.keymap.set('n', '<leader>yy', '<cmd>Y<CR>')
 
 
 local map = vim.api.nvim_set_keymap
@@ -84,7 +86,6 @@ map('n', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('t', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('v', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('i', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
-map('n', '<space><space>', '<Cmd>AvanteToggle<CR>', opts)
 map('n', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('v', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('i', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
@@ -104,7 +105,7 @@ map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>', { noremap = true,
 map('n', '<leader>ff', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'cmd-f' })
 map('n', '<C-f>', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Live grep' })
 
--- Search current word in project files
+-- Search current word in projecr files
 map('n', '<leader>w', '<Cmd>Telescope grep_string theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Grep current word' })
 
 -- Search tags in current buffer (requires .tags file)
