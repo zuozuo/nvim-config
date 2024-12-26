@@ -42,8 +42,8 @@ local function runCurrentFile()
   }
   if execs[ft] then
     local executable = vim.fn.exepath(execs[ft])
-    local cmd = "FloatermNew " .. executable .. " % && exit 1"
-    print(cmd)
+    vim.cmd("Terminal")
+    local cmd = "FloatermSend " .. executable .. " " .. file
     vim.cmd(cmd)
   else
     vim.notify(ft .. "Not support to execute in the command", "warn")
@@ -51,8 +51,3 @@ local function runCurrentFile()
 end
 
 vim.api.nvim_create_user_command("RunCurrentFile", runCurrentFile, {})
-vim.keymap.set('n', '<leader>sr', '<cmd>RunCurrentFile<CR>')
-
-------------------------------------------------------------------------------------------
------------------------------ map CMD+R to ,sr in iterm 2 --------------------------------
-------------------------------------------------------------------------------------------

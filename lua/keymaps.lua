@@ -23,12 +23,15 @@
 -- ,d show telescope diagnostic
 -- cmd-0 toggle avant
 
-
 vim.keymap.set('n', 'U', '<C-r>')
 vim.keymap.set('n', '9', '^')
 vim.keymap.set('n', '0', '$')
 vim.keymap.set('v', '9', '^')
 vim.keymap.set('v', '0', '$')
+
+
+vim.keymap.set('n', ',ae', 'V')
+vim.keymap.set('i', ',ae', '<esc>V')
 
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
@@ -63,8 +66,8 @@ vim.keymap.set('v', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('n', '<leader>sb', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>', { desc = 'cmd-s-b' })
 vim.keymap.set('v', '<leader>sb', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>", { desc = 'cmd-s-b' })
 
-vim.keymap.set('t', '<leader>gg', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
-vim.keymap.set('n', '<leader>gg', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('t', '<leader>bb', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('n', '<leader>bb', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
 vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
 -- vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 -- vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
@@ -72,7 +75,8 @@ vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
 
 vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
 vim.keymap.set('n', '<leader>yy', '<cmd>Y<CR>')
-
+vim.keymap.set('i', 'AI', '<ESC>V,ae')
+vim.keymap.set('n', 'AI', 'V,ae')
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -86,14 +90,14 @@ map('n', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('t', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('v', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('i', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
-map('n', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('i', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('n', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('i', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('n', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('i', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('n', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('i', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 
 -- map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
 --   { noremap = true, silent = true, desc = 'Resume last telescope picker' })
@@ -145,6 +149,7 @@ end)
 
 -- vim.keymap.set('n', '<leader>t', '<cmd>AerialToggle!<CR>')
 vim.keymap.set('n', '<leader>t', '<cmd>Lspsaga outline<CR>', { desc = "cmd-s-l" })
+vim.keymap.set('n', '<leader>rr', '<cmd>RunCurrentFile<CR>')
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
