@@ -5,6 +5,8 @@ return {
     local actions = require("telescope.actions")
     require('telescope').setup{
       defaults = {
+        theme = "dropdown",
+        layout_strategy='vertical',
         mappings = {
           i = {
             ["<C-h>"] = "which_key",

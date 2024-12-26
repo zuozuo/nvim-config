@@ -4,7 +4,6 @@
 -- ,w    project搜索当前光标下的word
 -- cmd-f project搜索 live_grep
 -- cmd-s-o project 搜索 tag
--- cmd-o goto definition
 -- cmd-s-y file 搜索 tag
 -- cmd-s-l 显示文件的 symbol 列表
 -- bb :BufferGoto
@@ -12,16 +11,17 @@
 -- cmd-left FloatermPrev
 -- cmd-right FloatermNext
 -- cmd-b open float terminal
--- cmd-s-t open float terminal
 -- space-space open split terminal
 -- cmd-s-b open ipython
 -- cmd-s save file
 -- cmd-i goto definition
 -- cmd-s-i goto definition split
 -- cmd-s-v goto definition vsplit
--- cmd-o go back to last modified file
+-- cmd-p goto previous buffer 
+-- cmd-o goto next buffer
 -- cc comment current line
 -- ,n open file tree
+-- ,d show telescope diagnostic
 
 vim.keymap.set('n', 'U', '<C-r>')
 vim.keymap.set('n', '9', '^')
@@ -48,7 +48,7 @@ vim.keymap.set("n", "[c", function()
 end, { silent = true })
 
 
-vim.keymap.set('n', '<leader>gi', '<CMD>FloatermNew --width=0.9 --height=0.8 lazygit<CR>', { desc = 'cmd-s-g' })
+vim.keymap.set('n', '<leader>sg', '<CMD>FloatermNew --width=0.9 --height=0.8 lazygit<CR>', { desc = 'cmd-s-g' })
 
 -- vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
 -- vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
@@ -57,17 +57,16 @@ vim.keymap.set('n', '<leader>fp', '<CMD>FloatermPrev<CR>', { desc = 'cmd-left' }
 vim.keymap.set('n', '<leader>fn', '<CMD>FloatermNext<CR>', { desc = 'cmd-right' })
 vim.keymap.set('t', '<leader>fp', '<C-\\><C-n><CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
 vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>', { desc = 'cmd-right' })
-vim.keymap.set('t', '<leader>hs', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
-vim.keymap.set('n', '<leader>hs', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('t', '<leader>bb', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('n', '<leader>bb', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
+vim.keymap.set('n', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
+vim.keymap.set('v', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
+vim.keymap.set('n', '<leader>sb', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>', { desc = 'cmd-s-b' })
+vim.keymap.set('v', '<leader>sb', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>", { desc = 'cmd-s-b' })
 
-vim.keymap.set('n', '<leader>vi', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>',
-  { desc = 'cmd-s-b' })
-vim.keymap.set('v', '<leader>vi', "<cmd>'<,'>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>",
-  { desc = 'cmd-s-b' })
-
-vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
-vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
-vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+-- vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
+-- vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+-- vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 -- vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
@@ -81,59 +80,37 @@ map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
 
-map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
-  { noremap = true, silent = true, desc = 'Resume last telescope picker' })
-map('n', '<leader>ee', '<Cmd>Telescope find_files theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'cmd-e' })
-map('n', '<C-e>', '<Cmd>Telescope find_files theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'cmd-e' })
-map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'List buffers' })
+-- map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
+--   { noremap = true, silent = true, desc = 'Resume last telescope picker' })
 
-map('n', '<leader>ff', '<Cmd>Telescope live_grep theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'cmd-s' })
-map('n', '<C-f>', '<Cmd>Telescope live_grep theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'Live grep' })
+map('n', '<leader>ee', '<Cmd>Telescope find_files theme=dropdown<CR>', { noremap = true, silent = true, desc = 'cmd-e' })
+map('n', '<C-e>', '<Cmd>Telescope find_files theme=dropdown<CR>', { noremap = true, silent = true, desc = 'cmd-e' })
+map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>', { noremap = true, silent = true, desc = 'List buffers' })
 
-map('n', '<leader>w', '<Cmd>Telescope grep_string theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'Grep current word' })
-map('n', '<leader>ct', '<Cmd>Telescope current_buffer_tags theme=dropdown ctags_file=.tags<CR>',
-  { noremap = true, silent = true, desc = 'cmd-s-y' })
-map('n', '<leader>gt', '<Cmd>Telescope tags theme=dropdown ctags_file=.tags<CR>',
-  { noremap = true, silent = true, desc = 'cmd-s-o' })
-map('n', '<leader>d', '<Cmd>Telescope diagnostics theme=dropdown<CR>',
-  { noremap = true, silent = true, desc = 'Show diagnostics' })
+map('n', '<leader>ff', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'cmd-f' })
+map('n', '<C-f>', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Live grep' })
 
-map('n', '<leader>gr', '<cmd>Telescope lsp_references<CR>', {
-  noremap = true, silent = true, desc = 'cmd-s-r' })
-map('n', '<leader>gd', '<cmd>Telescope lsp_definitions<CR>', {
-  noremap = true, silent = true, desc = 'cmd-i' })
-map('n', '<leader>gs', '<cmd>sp | Telescope lsp_definitions<CR>', {
-  noremap = true, silent = true, desc = 'cmd-s-i' })
-map('n', '<leader>gv', '<cmd>vsp | Telescope lsp_definitions<CR>', {
-  noremap = true, silent = true, desc = 'cmd-s-v'
-})
+map('n', '<leader>w', '<Cmd>Telescope grep_string theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Grep current word' })
+map('n', '<leader>sy', '<Cmd>Telescope current_buffer_tags theme=dropdown ctags_file=.tags<CR>', { noremap = true, silent = true, desc = 'cmd-s-y' })
+map('n', '<leader>so', '<Cmd>Telescope tags theme=dropdown ctags_file=.tags<CR>', { noremap = true, silent = true, desc = 'cmd-s-o' })
+map('n', '<leader>d', '<Cmd>Telescope diagnostics theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Show diagnostics' })
+map('n', '<leader>sr', '<cmd>Telescope lsp_references<CR>', { noremap = true, silent = true, desc = 'cmd-s-r' })
+map('n', '<leader>ii', '<cmd>Telescope lsp_definitions<CR>', { noremap = true, silent = true, desc = 'cmd-i' })
+map('n', '<leader>si', '<cmd>sp | Telescope lsp_definitions<CR>', { noremap = true, silent = true, desc = 'cmd-s-i' })
+map('n', '<leader>sv', '<cmd>vsp | Telescope lsp_definitions<CR>', { noremap = true, silent = true, desc = 'cmd-s-v' })
 
-map('n', '<leader>fs', '<Cmd>w<CR>',
-  { noremap = true, silent = true, desc = 'cmd-s' })
+map('n', '<leader>ss', '<Cmd>w<CR>', { noremap = true, silent = true, desc = 'cmd-s' })
 
-map('n', '<leader>ep', '<cmd>edit #<CR>', {
-  noremap = true, silent = true, desc = 'cmd-o'
-})
-map('n', '<C-p>', '<cmd>bprev<CR>', opts)
-map('n', '<leader>bp', '<cmd>bprev<CR>', {
-  noremap = true, silent = true, desc = 'cmd-p'
-})
-map('n', '<leader>bn', '<cmd>bnext<CR>', {
-  noremap = true, silent = true, desc = 'cmd-s-p'
-})
+map('n', '<C-o>', '<cmd>edit #<CR>', opts)
+map('n', '<leader>pp', '<cmd>bprev<CR>', { noremap = true, silent = true, desc = 'cmd-p' })
+map('n', '<leader>oo', '<cmd>bnext<CR>', { noremap = true, silent = true, desc = 'cmd-o' })
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 local api = require "nvim-tree.api"
--- vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', { desc = 'File Explorer' })
-vim.keymap.set('n', '<leader>n', '<cmd>Y<cr>', { desc = 'File Explorer' })
+vim.keymap.set('n', '<leader>n', '<cmd>NvimTreeToggle<cr>', { desc = 'File Explorer' })
+-- vim.keymap.set('n', '<leader>pp', '<cmd>Y<cr>', { desc = 'File Explorer' })
 
 local api = require('Comment.api')
 vim.keymap.set('n', 'cc', api.toggle.linewise.current)
@@ -154,8 +131,8 @@ vim.keymap.set('n', '<leader>t', '<cmd>Lspsaga outline<CR>', { desc = "cmd-s-l" 
 vim.keymap.set('n', '<ESC>', '<cmd>Lspsaga diagnostic_jump_next<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "cmd-]" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "cmd-[" })
-vim.keymap.set('n', '<space>e', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<space>w', vim.diagnostic.setqflist)
+-- vim.keymap.set('n', '<space>e', vim.diagnostic.setloclist)
+-- vim.keymap.set('n', '<space>w', vim.diagnostic.setqflist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer

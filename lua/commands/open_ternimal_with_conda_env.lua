@@ -10,7 +10,7 @@ end
 
 local openFloatTerminal = function()
   local conda_env = get_conda_env()
-  local cmd = string.format('FloatermNew --autoclose=0 zsh')
+  local cmd = string.format('FloatermNew zsh')
   vim.cmd(cmd)
   local text = string.format('FloatermSend conda activate %s && clear', conda_env)
   vim.cmd(text)
@@ -18,7 +18,7 @@ end
 
 local openSplitTerminal = function()
   local conda_env = get_conda_env()
-  local cmd = string.format('FloatermNew --wintype=vsplit --width=0.5 --autoclose=0 zsh')
+  local cmd = string.format('FloatermNew --wintype=vsplit --width=0.5 zsh')
   vim.cmd(cmd)
   local text = string.format('FloatermSend conda activate %s && clear', conda_env)
   vim.cmd(text)
