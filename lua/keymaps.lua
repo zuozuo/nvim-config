@@ -90,6 +90,7 @@ map('n', '<C-d>', '<Cmd>Telescope buffers theme=dropdown<CR>', { noremap = true,
 map('n', '<leader>ff', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'cmd-f' })
 map('n', '<C-f>', '<Cmd>Telescope live_grep theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Live grep' })
 
+-- AI add comments here AI!
 map('n', '<leader>w', '<Cmd>Telescope grep_string theme=dropdown<CR>', { noremap = true, silent = true, desc = 'Grep current word' })
 map('n', '<leader>sy', '<Cmd>Telescope current_buffer_tags theme=dropdown ctags_file=.tags<CR>', { noremap = true, silent = true, desc = 'cmd-s-y' })
 map('n', '<leader>so', '<Cmd>Telescope tags theme=dropdown ctags_file=.tags<CR>', { noremap = true, silent = true, desc = 'cmd-s-o' })
