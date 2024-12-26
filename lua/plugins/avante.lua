@@ -6,30 +6,25 @@ return {
   opts = {
     -- add any opts here
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | [string]
-    -- provider = "claude", -- Recommend using Claude
-    -- -- auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-    -- ------------------------------ not working --------------------------------------------
-    -- claude = {
-    --   endpoint = "https://api.gptsapi.net",
-    --   model = "claude-3-5-sonnet-20241022",
-    --   temperature = 0,
-    --   max_tokens = 4096,
-    -- },
-    -- provider = "openai", -- Only recommend using Claude
-    -- openai = {
-    --   endpoint = "http://0.0.0.0:4000/v1",
-    --   model = "claude-3",
-    --   timeout = 20000, -- Timeout in milliseconds
-    --   temperature = 0,
-    --   max_tokens = 4096,
-    -- },
+    
+    -- Since auto-suggestions are a high-frequency operation and therefore expensive,
+    -- it is recommended to specify an inexpensive provider or even a free provider: copilot
+    -- auto_suggestions_provider = "gemini",
+
     provider = "openai", -- Only recommend using Claude
     openai = {
-      endpoint = "https://api.gptsapi.net/v1",
-      model = "gpt-4o",
-      timeout = 20000, -- Timeout in milliseconds
+      endpoint = "https://api.deepseek.com/v1",
+      model = "deepseek-chat",
+      timeout = 30000, -- Timeout in milliseconds
       temperature = 0,
-      max_tokens = 4096,
+      max_tokens = 10000,
+    },
+    gemini = {
+      endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+      model = "gemini-2.0-flash-exp",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 10000,
     },
     behaviour = {
       auto_suggestions = false, -- Experimental stage
@@ -39,57 +34,36 @@ return {
       support_paste_from_clipboard = false,
       minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
     },
-    -- auto_suggestions_provider = "azure",
-    -- azure = {
-    --   endpoint = "https://zuozuo-je1.openai.azure.com/", -- example: "https://<your-resource-name>.openai.azure.com"
-    --   deployment = "gpt-4o", -- Azure deployment name (e.g., "gpt-4o", "my-gpt-4o-deployment")
-    --   api_version = "2024-08-01-preview",
-    --   timeout = 30000, -- Timeout in milliseconds
-    --   temperature = 0,
-    --   max_tokens = 4096,
-    --   ["local"] = false,
-    -- }
-    -- provider = "claude", -- Recommend using Claude
-    -- auto_suggestions_provider = "claude", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-    -- claude = {
-    --   endpoint = "https://api.gptsapi.net",
-    --   model = "claude-3-5-sonnet-20241022",
-    --   temperature = 0,
-    --   max_tokens = 4096,
-    -- },
-    -- provider = "my-custom-provider", -- You can then change this provider here
-    -- vendors = {
-    --   ["my-custom-provider"] = {
-    --     endpoint = "http://localhost:8000/v1/chat/completions", -- The full endpoint of the provider
-    --     model = "qweb25-coder", -- The model name to use with this provider
-    --     api_key_name = "", -- The name of the environment variable that contains the API key
-    --     --- This function below will be used to parse in cURL arguments.
-    --     --- It takes in the provider options as the first argument, followed by code_opts retrieved from given buffer.
-    --     --- This code_opts include:
-    --     --- - question: Input from the users
-    --     --- - code_lang: the language of given code buffer
-    --     --- - code_content: content of code buffer
-    --     --- - selected_code_content: (optional) If given code content is selected in visual mode as context.
-    --     ---@type fun(opts: AvanteProvider, code_opts: AvantePromptOptions): AvanteCurlOutput
-    --     parse_curl_args = function(opts, code_opts) end,
-    --     --- This function will be used to parse incoming SSE stream
-    --     --- It takes in the data stream as the first argument, followed by SSE event state, and opts
-    --     --- retrieved from given buffer.
-    --     --- This opts include:
-    --     --- - on_chunk: (fun(chunk: string): any) this is invoked on parsing correct delta chunk
-    --     --- - on_complete: (fun(err: string|nil): any) this is invoked on either complete call or error chunk
-    --     ---@type fun(data_stream: string, event_state: string, opts: ResponseParser): nil
-    --     parse_response = function(data_stream, event_state, opts) end,
-    --     --- The following function SHOULD only be used when providers doesn't follow SSE spec [ADVANCED]
-    --     --- this is mutually exclusive with parse_response_data
-    --     ---@type fun(data: string, handler_opts: AvanteHandlerOptions): nil
-    --     parse_stream_data = function(data, handler_opts) end,
-    --   },
-    -- },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+  windows = {
+    ---@type "right" | "left" | "top" | "bottom"
+    position = "right", -- the position of the sidebar
+    wrap = true, -- similar to vim.o.wrap
+    width = 35, -- default % based on available width
+    sidebar_header = {
+      enabled = true, -- true, false to enable/disable the header
+      align = "center", -- left, center, right for title
+      rounded = true,
+    },
+    input = {
+      prefix = "> ",
+      height = 8, -- Height of the input window in vertical layout
+    },
+    edit = {
+      border = "rounded",
+      start_insert = true, -- Start insert mode when opening the edit window
+    },
+    ask = {
+      floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+      start_insert = true, -- Start insert mode when opening the ask window
+      border = "rounded",
+      ---@type "ours" | "theirs"
+      focus_on_apply = "ours", -- which diff to focus after applying
+    },
+  },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",

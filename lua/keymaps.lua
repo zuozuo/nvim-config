@@ -22,6 +22,7 @@
 -- cc comment current line
 -- ,n open file tree
 -- ,d show telescope diagnostic
+-- cmd-0 toggle avant
 
 vim.keymap.set('n', 'U', '<C-r>')
 vim.keymap.set('n', '9', '^')
@@ -79,6 +80,14 @@ map('n', '<C-9>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
+
+map('n', '<leader>00', '<Cmd>AvanteToggle<CR>', opts)
+map('v', '<leader>00', '<Cmd>AvanteToggle<CR>', opts)
+map('i', '<leader>00', '<Cmd>AvanteToggle<CR>', opts)
+map('n', '<space><space>', '<Cmd>AvanteToggle<CR>', opts)
+map('n', '<leader>cc', '<Cmd>AvanteToggle<CR>', opts)
+map('v', '<leader>cc', '<Cmd>AvanteToggle<CR>', opts)
+map('i', '<leader>cc', '<Cmd>AvanteToggle<CR>', opts)
 
 -- map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
 --   { noremap = true, silent = true, desc = 'Resume last telescope picker' })
