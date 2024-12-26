@@ -10,7 +10,6 @@
 -- cmd-s-g lazygit
 -- cmd-left FloatermPrev
 -- cmd-right FloatermNext
--- cmd-b open float terminal
 -- space-space open split terminal
 -- cmd-s-b open ipython
 -- cmd-s save file
@@ -51,15 +50,15 @@ end, { silent = true })
 
 vim.keymap.set('n', '<leader>sg', '<CMD>FloatermNew --width=0.9 --height=0.8 lazygit<CR>', { desc = 'cmd-s-g' })
 
--- vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
--- vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
+vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
+vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 vim.keymap.set('n', '<leader>fp', '<CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
 vim.keymap.set('n', '<leader>fn', '<CMD>FloatermNext<CR>', { desc = 'cmd-right' })
 vim.keymap.set('t', '<leader>fp', '<C-\\><C-n><CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
 vim.keymap.set('t', '<leader>fn', '<C-\\><C-n><CMD>FloatermNext<CR>', { desc = 'cmd-right' })
-vim.keymap.set('t', '<leader>bb', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
-vim.keymap.set('n', '<leader>bb', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
+-- vim.keymap.set('t', '<leader>bb', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
+-- vim.keymap.set('n', '<leader>bb', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
 vim.keymap.set('n', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('v', '<leader>sp', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('n', '<leader>sb', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>', { desc = 'cmd-s-b' })
@@ -81,13 +80,19 @@ map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
 
-map('n', '<leader>00', '<Cmd>AvanteToggle<CR>', opts)
-map('v', '<leader>00', '<Cmd>AvanteToggle<CR>', opts)
-map('i', '<leader>00', '<Cmd>AvanteToggle<CR>', opts)
+map('n', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
+map('t', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
+map('v', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
+map('i', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('n', '<space><space>', '<Cmd>AvanteToggle<CR>', opts)
-map('n', '<leader>cc', '<Cmd>AvanteToggle<CR>', opts)
-map('v', '<leader>cc', '<Cmd>AvanteToggle<CR>', opts)
-map('i', '<leader>cc', '<Cmd>AvanteToggle<CR>', opts)
+map('n', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('i', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<leader>bb', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('n', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('i', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('v', '<C-b>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 
 -- map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
 --   { noremap = true, silent = true, desc = 'Resume last telescope picker' })
