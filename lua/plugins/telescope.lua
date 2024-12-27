@@ -19,6 +19,16 @@ return {
           theme = "dropdown",
           -- find_command = {"ag", "--silent", "--nocolor", "--follow", "-g", "", "--literal", "--hidden","--ignore", ".git "},
           find_command = {"fd", "--type", "f", "--hidden", "--exclude", ".git", "--exclude", "node_modules", "--exclude", "vendor", },
+        },
+        tags = {
+          theme = "dropdown",
+          ctags_file = ".ctags",  -- Optional: ctags file path
+          -- 1. **`tags_file`**: Specifies the default tags file path (usually `tags` in the project root).
+          -- 2. **`ctags_file`**: Optional configuration for ctags file path.
+          ctags_args = { "--exclude=node_modules", "--exclude=vendor" },  -- Optional: ctags arguments
+          only_sort = false,  -- Allow searching and sorting
+          show_line = true,   -- Show the line where the tag is found
+          previewer = true,   -- Enable previewer
         }
       },
       extensions = {

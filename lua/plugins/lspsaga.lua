@@ -6,9 +6,7 @@ return {
         code_action = ''
       },
       outline = {
-        layout = 'float',
-        max_height = 0.8,
-        left_width = 0.4,
+        layout = 'normal',
       },
     })
   end,

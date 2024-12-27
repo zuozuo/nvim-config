@@ -16,8 +16,8 @@
 -- cmd-i goto definition
 -- cmd-s-i goto definition split
 -- cmd-s-v goto definition vsplit
--- cmd-p goto previous buffer 
--- cmd-o goto next buffer
+-- cmd-[ goto previous buffer 
+-- cmd-] goto next buffer
 -- cc comment current line
 -- ,n open file tree
 -- ,d show telescope diagnostic
@@ -45,6 +45,7 @@ vim.keymap.set('t', '<c-l>', '<C-\\><C-n><c-w>l')
 
 vim.keymap.set('n', 'Y', 'yy', { desc = 'Copy line' })
 vim.keymap.set('n', 'qq', '<cmd>quit<cr>', { desc = 'Quit buffer' })
+vim.keymap.set('i', ',jj', '<c-s>', { desc = 'submit avante' })
 vim.cmd("nmap bb :BufferGoto ")
 
 vim.keymap.set("n", "[c", function()
@@ -75,8 +76,6 @@ vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
 
 vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
 vim.keymap.set('n', '<leader>yy', '<cmd>Y<CR>')
-vim.keymap.set('i', 'AI', '<ESC>V,ae')
-vim.keymap.set('n', 'AI', 'V,ae')
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -86,18 +85,16 @@ map('n', '<C-2>', '<Cmd>BufferNext<CR>', opts)
 map('n', '<C-1>', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<C-0>', '<Cmd>BufferNext<CR>', opts)
 
+map('n', 'L', '<Cmd>Lspsaga', opts)
+
 map('n', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('t', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('v', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('i', '<leader>00', '<C-\\><C-n><Cmd>FloatermToggle<CR>', opts)
 map('n', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('v', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+map('t', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('i', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('n', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('i', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
-map('v', '<C-l>', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 
 -- map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
 --   { noremap = true, silent = true, desc = 'Resume last telescope picker' })
@@ -126,8 +123,9 @@ map('n', '<leader>sv', '<cmd>vsp | Telescope lsp_definitions<CR>', { noremap = t
 map('n', '<leader>ss', '<Cmd>w<CR>', { noremap = true, silent = true, desc = 'cmd-s' })
 
 map('n', '<C-o>', '<cmd>edit #<CR>', opts)
-map('n', '<leader>pp', '<cmd>bprev<CR>', { noremap = true, silent = true, desc = 'cmd-p' })
-map('n', '<leader>oo', '<cmd>bnext<CR>', { noremap = true, silent = true, desc = 'cmd-o' })
+map('n', '<leader>oo', '<cmd>edit #<CR>', opts)
+map('n', '[d', '<cmd>bprev<CR>', opts)
+map('n', ']d', '<cmd>bnext<CR>', { noremap = true, silent = true, desc = 'cmd-s-p' })
 
 local function opts(desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -154,8 +152,8 @@ vim.keymap.set('n', '<leader>rr', '<cmd>RunCurrentFile<CR>')
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<ESC>', '<cmd>Lspsaga diagnostic_jump_next<CR>')
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "cmd-]" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "cmd-[" })
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "cmd-]" })
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "cmd-[" })
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.setloclist)
 -- vim.keymap.set('n', '<space>w', vim.diagnostic.setqflist)
 
@@ -183,6 +181,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format { async = true }
     end, opts)
   end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("normal! zz")
+    end,
 })
 
 local ls = require("luasnip")

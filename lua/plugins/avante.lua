@@ -10,6 +10,12 @@ return {
     -- Since auto-suggestions are a high-frequency operation and therefore expensive,
     -- it is recommended to specify an inexpensive provider or even a free provider: copilot
     -- auto_suggestions_provider = "gemini",
+    --
+    -- mappings = {
+    --   ask = "<leader>ua", -- ask
+    --   edit = "<leader>ue", -- edit
+    --   refresh = "<leader>ur", -- refresh
+    -- },
 
     provider = "openai", -- Only recommend using Claude
     openai = {
