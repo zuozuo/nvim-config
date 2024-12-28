@@ -30,8 +30,9 @@ vim.keymap.set('v', '9', '^')
 vim.keymap.set('v', '0', '$')
 
 
-vim.keymap.set('n', ',ae', 'V')
+vim.keymap.set('n', ',ae', 'v,ae')
 vim.keymap.set('i', ',ae', '<esc>V')
+vim.keymap.set('v', ',ha', ',aa explain<esc>')
 
 vim.keymap.set('n', '<c-j>', '<c-w>j')
 vim.keymap.set('n', '<c-k>', '<c-w>k')
@@ -43,9 +44,13 @@ vim.keymap.set('t', '<c-k>', '<C-\\><C-n><c-w>k')
 vim.keymap.set('t', '<c-h>', '<C-\\><C-n><c-w>h')
 vim.keymap.set('t', '<c-l>', '<C-\\><C-n><c-w>l')
 
+vim.keymap.set('i', '<c-j>', '<C-\\><C-n><c-w>j')
+vim.keymap.set('i', '<c-k>', '<C-\\><C-n><c-w>k')
+vim.keymap.set('i', '<c-h>', '<C-\\><C-n><c-w>h')
+vim.keymap.set('i', '<c-l>', '<C-\\><C-n><c-w>l')
+
 vim.keymap.set('n', 'Y', 'yy', { desc = 'Copy line' })
 vim.keymap.set('n', 'qq', '<cmd>quit<cr>', { desc = 'Quit buffer' })
-vim.keymap.set('i', ',jj', '<c-s>', { desc = 'submit avante' })
 vim.cmd("nmap bb :BufferGoto ")
 
 vim.keymap.set("n", "[c", function()
@@ -69,10 +74,6 @@ vim.keymap.set('v', '<leader>sb', "<cmd>'<,'>FloatermNew --name=ipython --wintyp
 
 vim.keymap.set('t', '<leader>bb', '<C-\\><C-n><CMD>Terminal<CR>', { desc = 'cmd-b' })
 vim.keymap.set('n', '<leader>bb', '<cmd>Terminal<CR>', { desc = 'cmd-b' })
-vim.keymap.set('n', '<space><space>', '<cmd>TerminalSplit<CR>')
--- vim.keymap.set('t', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
--- vim.keymap.set('n', ',hh', '<C-\\><C-n><CMD>FloatermToggle<CR>')
--- vim.keymap.set('n', '<esc>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 
 vim.keymap.set('n', '<c-n>', '<cmd>GotoCurrentPath<CR>')
 vim.keymap.set('n', '<leader>yy', '<cmd>Y<CR>')
@@ -95,6 +96,8 @@ map('n', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('v', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('t', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
 map('i', '<leader>ll', '<C-\\><C-n><Cmd>AvanteToggle<CR>', opts)
+
+map('n', '<space><space>', '<C-\\><C-n><Cmd>AvanteAsk explain in Chinese<CR>', opts)
 
 -- map('n', '<leader>rr', '<Cmd>Telescope resume<CR>',
 --   { noremap = true, silent = true, desc = 'Resume last telescope picker' })
@@ -193,3 +196,16 @@ vim.api.nvim_create_autocmd("BufEnter", {
 local ls = require("luasnip")
 vim.keymap.set({ "s" }, "<Tab>", function() ls.jump(1) end, { silent = true })
 vim.keymap.set({ "s" }, "<S-Tab>", function() ls.jump(-1) end, { silent = true })
+
+
+-- Reload whid.nvim plugin
+vim.api.nvim_create_user_command('ReloadWhid', function()
+    -- Unload the module
+    package.loaded['whid'] = nil
+    package.loaded['whid.init'] = nil
+    
+    -- Reload the module
+    require('whid').setup()
+    
+    print("whid.nvim reloaded!")
+end, {})

@@ -18,6 +18,13 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.laststatus = 3
 
+vim.opt.termguicolors = true
+
+-- 使用 kitty 终端特性
+if vim.env.TERM == 'xterm-kitty' then
+  vim.opt.mouse = 'a'
+end
+
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -27,3 +34,12 @@ vim.cmd("autocmd TermOpen * startinsert")
 
 -- https://dev.to/minodisk/automatically-switch-to-insert-mode-when-focusing-on-terminal-window-in-vim8-9ab
 vim.cmd("autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | silent! normal i | endif")
+
+vim.cmd([[
+augroup kitty_mp
+    autocmd!
+    au VimLeave * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=20 margin=0
+    au VimEnter * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0 margin=0
+    au BufEnter * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0 margin=0
+augroup END
+]])

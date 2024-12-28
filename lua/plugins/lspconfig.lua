@@ -4,7 +4,7 @@ return {
     local lspconfig = require('lspconfig')
     lspconfig.pyright.setup{}
     lspconfig.ts_ls.setup{
-      filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
+      filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx", "lua" }
     }
     lspconfig.gopls.setup{}
     -- lspconfig.ruff_lsp.setup{}
