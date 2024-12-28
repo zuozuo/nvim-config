@@ -20,11 +20,6 @@ vim.opt.laststatus = 3
 
 vim.opt.termguicolors = true
 
--- 使用 kitty 终端特性
-if vim.env.TERM == 'xterm-kitty' then
-  vim.opt.mouse = 'a'
-end
-
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

@@ -6,8 +6,19 @@ local requireAll = require("require_all")
 
 require("settings")
 require("lazy_config")
-require("keymaps")
 requireAll("commands")
+
+-- 使用 kitty 终端特性
+if vim.env.TERM == 'xterm-kitty' then
+  vim.opt.mouse = 'a'
+  require("keymaps_kitty")
+  print("Running in Kitty")
+end
+
+if vim.fn.getenv("ITERM_SESSION_ID") ~= vim.NIL then
+  require("keymaps_iterm2")
+  print("Running in iTerm2")
+end
 
 vim.cmd("colorscheme delek")
 vim.cmd("colorscheme desert")
