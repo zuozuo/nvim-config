@@ -26,15 +26,15 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set('n', '<leader>sg', '<CMD>FloatermNew --width=0.9 --height=0.8 lazygit<CR>', { desc = 'cmd-s-g' })
+vim.keymap.set('n', '<D-s-g>', '<CMD>FloatermNew --width=0.9 --height=0.8 lazygit<CR>', { desc = 'cmd-s-g' })
 
-vim.keymap.set('n', '<leader>ft', '<CMD>FloatermToggle<CR>')
-vim.keymap.set('t', '<leader>ft', '<C-\\><C-n><CMD>FloatermToggle<CR>')
-
-vim.keymap.set('n', '<F9>', '<CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
-vim.keymap.set('n', '<F10>', '<CMD>FloatermNext<CR>', { desc = 'cmd-right' })
-vim.keymap.set('t', '<F9>', '<C-\\><C-n><CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
+vim.keymap.set('n', '<F8>', '<CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
+vim.keymap.set('t', '<F8>', '<C-\\><C-n><CMD>FloatermPrev<CR>', { desc = 'cmd-left' })
+vim.keymap.set('n', '<F9>', '<CMD>FloatermToggle<CR>')
+vim.keymap.set('t', '<F9>', '<C-\\><C-n><CMD>FloatermToggle<CR>')
 vim.keymap.set('t', '<F10>', '<C-\\><C-n><CMD>FloatermNext<CR>', { desc = 'cmd-right' })
+vim.keymap.set('n', '<F10>', '<CMD>FloatermNext<CR>', { desc = 'cmd-right' })
+
 vim.keymap.set('n', '<D-s-p>', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('v', '<D-s-p>', "<cmd>Telescope<cr>", { desc = 'cmd-s-p' })
 vim.keymap.set('n', '<D-s-b>', '<cmd>FloatermNew --name=ipython --wintype=vsplit --width=0.5 ipython<CR>', { desc = 'cmd-s-b' })
@@ -95,3 +95,5 @@ map('n', '<D-]>', '<cmd>bnext<CR>', { noremap = true, silent = true, desc = 'cmd
 -- vim.keymap.set('n', '<leader>t', '<cmd>AerialToggle!<CR>')
 vim.keymap.set('n', '<leader>t', '<cmd>Lspsaga outline<CR>', { desc = "cmd-s-l" })
 vim.keymap.set('n', '<D-r>', '<cmd>RunCurrentFile<CR>')
+
+vim.api.nvim_set_keymap('n', '<Esc>[27;5;48~', ':echo "Command-0 pressed!"<CR>', {noremap = true, silent = true})

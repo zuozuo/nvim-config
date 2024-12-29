@@ -9,9 +9,29 @@ return {
         layout_strategy='vertical',
         mappings = {
           i = {
-            ["<C-h>"] = "which_key",
+            ["?"] = "which_key",
             ["<esc>"] = actions.close,
-          }
+            ["<C-t>"] = actions.select_tab,   -- 在新标签页中打开
+            ['<C-s>'] = actions.select_vertical,
+            ['<C-x>'] = actions.select_vertical,
+            ['<C-v>'] = actions.select_horizontal,
+            ["<C-e>"] = actions.send_to_qflist, -- 发送到 Quickfix 列表
+            ["<C-j>"] = actions.move_selection_next, -- 下一个结果
+            ["<C-k>"] = actions.move_selection_previous, -- 上一个结果
+          },
+          n = {
+            ["?"] = "which_key",
+            ["<esc>"] = actions.close,
+            ["<C-t>"] = actions.select_tab,   -- 在新标签页中打开
+            ['<C-s>'] = actions.select_vertical,
+            ['<C-x>'] = actions.select_vertical,
+            ['<C-v>'] = actions.select_horizontal,
+            ["<C-e>"] = actions.send_to_qflist, -- 发送到 Quickfix 列表
+            ["<C-j>"] = actions.move_selection_next, -- 下一个结果
+            ["<C-k>"] = actions.move_selection_previous, -- 上一个结果
+            ["j"] = actions.move_selection_next, -- 下一个结果
+            ["k"] = actions.move_selection_previous, -- 上一个结果
+          },
         }
       },
       pickers = {
