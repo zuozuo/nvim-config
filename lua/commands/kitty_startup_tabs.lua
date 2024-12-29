@@ -1,7 +1,16 @@
+-- 添加一个新的模块来存放我们的函数
+local M = {}
+
+-- 定义主函数
 local kittyStartupTabs = function()
-  local cmd = string.format('FloatermNew --wintype=vsplit --floaterm_autoclose=2 --width=0.5 ~/.config/scripts/kitty_startup_tabs')
+  local cmd = string.format(
+    "FloatermNew --exit_all=1 kittytabs"
+  )
   vim.cmd(cmd)
-  -- vim.cmd("5sleep")
-  -- vim.cmd("qa!")
 end
+
+-- 创建命令
 vim.api.nvim_create_user_command("KittyStartupTabs", kittyStartupTabs, {})
+
+-- 导出模块
+return M
