@@ -17,7 +17,7 @@ local requireAll = require("require_all")
 
 local plugins = {
   -- this must called before lspconfig
-  require("plugins.lua_neodev"),
+  -- require("plugins.lua_neodev"),
   table.unpack(requireAll("plugins"))
 }
 
@@ -30,7 +30,7 @@ local options = {
     path = "~/.nvim-plugins", -- dir where local plugins are stored
     patterns = {"Frydac"}, -- plugins that match will be searched in repos dir
     fallback = true, -- fallback to url
-  }
+  },
 }
 
 require("lazy").setup(plugins, options)
